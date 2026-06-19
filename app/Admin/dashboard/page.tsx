@@ -71,11 +71,11 @@ const recentOrders = [
 ];
 
 const topProducts = [
-  { name: "Prada Route", sold: 243, revenue: "$4,374", image: <img className="rounded-[6px]" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags/cross/route_1.jpg" alt="" /> },
-  { name: "Leather Soft Bags", sold: 187, revenue: "$3,366", image: <img className="rounded-[6px]" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/soft_bag_1.jpg" alt="" /> },
-  { name: "Prada Brique", sold: 152, revenue: "$2,128", image: <img className="rounded-[6px]" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/brique_2.jpg" alt="" /> },
-  { name: "Prada Re-Nylon Backpack", sold: 98, revenue: "$1,470", image: <img className="rounded-[6px]" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/backpacks_1.jpg" alt="" /> },
-  { name: "Prada Explore leather shoulder bag", sold: 50, revenue: "$1,070", image: <img className="rounded-[6px]" src="https://www.prada.com/content/dam/pradabkg_products/2/2VH/2VH204/2HE8F0002/2VH204_2HE8_F0002_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />}
+  { name: "Prada Route", sold: 243, revenue: "$4,374", image: <img className="rounded-[6px] w-full h-full object-cover" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags/cross/route_1.jpg" alt="" /> },
+  { name: "Leather Soft Bags", sold: 187, revenue: "$3,366", image: <img className="rounded-[6px] w-full h-full object-cover" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/soft_bag_1.jpg" alt="" /> },
+  { name: "Prada Brique", sold: 152, revenue: "$2,128", image: <img className="rounded-[6px] w-full h-full object-cover" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/brique_2.jpg" alt="" /> },
+  { name: "Prada Re-Nylon Backpack", sold: 98, revenue: "$1,470", image: <img className="rounded-[6px] w-full h-full object-cover" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/backpacks_1.jpg" alt="" /> },
+  { name: "Prada Explore leather shoulder bag", sold: 50, revenue: "$1,070", image: <img className="rounded-[6px] w-full h-full object-cover" src="https://www.prada.com/content/dam/pradabkg_products/2/2VH/2VH204/2HE8F0002/2VH204_2HE8_F0002_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />}
 ];
 
 const statusStyles: Record<string, string> = {
@@ -86,12 +86,12 @@ const statusStyles: Record<string, string> = {
 
 export default function Dashboard() {
   return (
-    <div className="min-h-screen flex bg-gray-50">
+    <div className="min-h-screen flex flex-col md:flex-row bg-gray-50">
       <Sidebar />
 
-      <main className="flex-1 p-6 overflow-auto">
+      <main className="flex-1 p-4 sm:p-6 overflow-x-hidden">
         {/* Header */}
-        <div className="flex items-end justify-between mb-6">
+        <div className="flex flex-row items-center justify-between mb-6 gap-4">
           <div>
             <h1 className="text-[17px] font-medium text-gray-900">Dashboard</h1>
             <p className="text-[12px] text-gray-400 mt-0.5">
@@ -113,15 +113,18 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-4 gap-3 mb-5">
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
           {stats.map((s) => (
             <div
               key={s.label}
-              className="bg-white border border-gray-100 rounded-xl p-4"
+              className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4"
             >
-              <p className="text-[11px] text-gray-400 mb-1.5">{s.label}</p>
-              <p className="text-[20px] font-medium text-gray-900">{s.value}</p>
+              <div className="flex justify-between items-start mb-1.5">
+                <p className="text-[11px] text-gray-400">{s.label}</p>
+                <span className="text-sm" role="img" aria-label={s.label}>{s.icon}</span>
+              </div>
+              <p className="text-[18px] sm:text-[20px] font-medium text-gray-900">{s.value}</p>
               <p
                 className={`text-[10px] mt-1 flex items-center gap-1 ${s.up ? "text-green-700" : "text-red-700"}`}
               >
@@ -132,10 +135,11 @@ export default function Dashboard() {
           ))}
         </div>
 
-        {/* Bottom row */}
-        <div className="grid grid-cols-[1fr_240px] gap-3">
-          {/* Recent orders */}
-          <div className="bg-white border border-gray-100 rounded-xl p-4">
+        {/* Bottom Row Blocks */}
+        <div className="grid grid-cols-1 xl:grid-cols-[1fr_300px] gap-3">
+          
+          {/* Recent Orders Card */}
+          <div className="bg-white border border-gray-100 rounded-xl p-4 overflow-hidden">
             <div className="flex items-center justify-between mb-4">
               <p className="text-[13px] font-medium text-gray-900">
                 Recent orders
@@ -147,53 +151,57 @@ export default function Dashboard() {
                 View all →
               </a>
             </div>
-            <table className="w-full">
-              <thead>
-                <tr>
-                  {["Order", "Customer", "Items", "Total", "Status"].map(
-                    (h) => (
-                      <th
-                        key={h}
-                        className="text-[10px] uppercase tracking-wide text-gray-400 font-medium text-left pb-2 border-b border-gray-100"
-                      >
-                        {h}
-                      </th>
-                    ),
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                {recentOrders.map((o) => (
-                  <tr
-                    key={o.id}
-                    className="hover:bg-orange-50/30 transition-colors"
-                  >
-                    <td className="text-[12px] text-gray-500 py-2.5 border-b border-gray-50">
-                      {o.id}
-                    </td>
-                    <td className="text-[12px] text-gray-500 py-2.5 border-b border-gray-50">
-                      {o.customer}
-                    </td>
-                    <td className="text-[12px] text-gray-500 py-2.5 border-b border-gray-50">
-                      {o.items}
-                    </td>
-                    <td className="text-[12px] text-gray-500 py-2.5 border-b border-gray-50">
-                      {o.total}
-                    </td>
-                    <td className="py-2.5 border-b border-gray-50">
-                      <span
-                        className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${statusStyles[o.status]}`}
-                      >
-                        {o.status}
-                      </span>
-                    </td>
+            
+            {/* Scroll Container for Mobile Screens */}
+            <div className="w-full overflow-x-auto scrollbar-thin">
+              <table className="w-full min-w-[500px]">
+                <thead>
+                  <tr>
+                    {["Order", "Customer", "Items", "Total", "Status"].map(
+                      (h) => (
+                        <th
+                          key={h}
+                          className="text-[10px] uppercase tracking-wide text-gray-400 font-medium text-left pb-2 border-b border-gray-100"
+                        >
+                          {h}
+                        </th>
+                      ),
+                    )}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {recentOrders.map((o) => (
+                    <tr
+                      key={o.id}
+                      className="hover:bg-orange-50/30 transition-colors"
+                    >
+                      <td className="text-[12px] text-gray-500 py-2.5 border-b border-gray-50">
+                        {o.id}
+                      </td>
+                      <td className="text-[12px] text-gray-500 py-2.5 border-b border-gray-50">
+                        {o.customer}
+                      </td>
+                      <td className="text-[12px] text-gray-500 py-2.5 border-b border-gray-50">
+                        {o.items}
+                      </td>
+                      <td className="text-[12px] text-gray-500 py-2.5 border-b border-gray-50">
+                        {o.total}
+                      </td>
+                      <td className="py-2.5 border-b border-gray-50">
+                        <span
+                          className={`text-[10px] font-medium px-2 py-0.5 rounded-full inline-block ${statusStyles[o.status]}`}
+                        >
+                          {o.status}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
 
-          {/* Top products */}
+          {/* Top Products Card */}
           <div className="bg-white border border-gray-100 rounded-xl p-4">
             <p className="text-[13px] font-medium text-gray-900 mb-4">
               Top products
@@ -204,7 +212,7 @@ export default function Dashboard() {
                   key={p.name}
                   className={`flex items-center gap-2.5 py-2.5 ${i < topProducts.length - 1 ? "border-b border-gray-50" : ""}`}
                 >
-                  <div className="w-8 h-8 rounded-[15px] bg-orange-50 flex items-center justify-center text-[18px] flex-shrink-0 cursor-pointer">
+                  <div className="w-8 h-8 rounded-[6px] overflow-hidden flex-shrink-0 bg-orange-50 flex items-center justify-center text-[18px] cursor-pointer">
                     {p.image}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -220,6 +228,7 @@ export default function Dashboard() {
               ))}
             </div>
           </div>
+
         </div>
       </main>
     </div>
