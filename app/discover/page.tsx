@@ -42,29 +42,30 @@ export default function Women_Sunglasses() {
       </div>
 
       {/* FIRST-PAIR Banner Section */}
-      <div className="flex flex-col md:flex-row justify-center items-stretch w-full relative">
-        <div className="w-full md:w-1/2">
-          <img 
-            className="w-full h-full object-cover" 
-            src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/06/15_06/sunglasses_w/card_1_DT.jpg" 
-            alt="Shifting Perspectives 1" 
-          />
-        </div>
-        <div className="w-full md:w-1/2 relative flex items-center justify-center bg-gray-50 min-h-[300px] md:min-h-auto">
-          <img 
-            className="w-full h-full object-cover absolute inset-0 hidden md:block" 
-            src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/06/15_06/sunglasses_w/card_2_DT.jpg" 
-            alt="Shifting Perspectives 2" 
-          />
-          {/* Text Overlay container made relative on mobile / layout-bound on desktop */}
-          <div className="relative md:absolute z-10 p-6 text-center md:text-right md:right-12 text-black md:bg-transparent bg-white/80 md:backdrop-blur-none backdrop-blur-sm m-4 md:m-0 max-w-sm md:max-w-none">
-            <p className="font-bold text-[18px] md:text-[20px] uppercase tracking-wide">Shifting Perspectives</p>
-            <p className="text-[13px] md:text-[14px] mt-2 font-light">
-              The freedom to reinvent your perspective <br className="hidden md:inline" /> through new combinations.
-            </p>
-          </div>
-        </div>
-      </div>
+<div className="flex flex-col md:flex-row justify-center items-stretch w-full relative">
+  <div className="w-full md:w-1/2">
+    <img 
+      className="w-full h-full object-cover" 
+      src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/06/15_06/sunglasses_w/card_1_DT.jpg" 
+      alt="Shifting Perspectives 1" 
+    />
+  </div>
+  <div className="w-full md:w-1/2 relative flex items-start justify-start bg-gray-50 min-h-[300px] md:min-h-auto">
+    <img 
+      className="w-full h-full object-cover absolute inset-0 hidden md:block" 
+      src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/06/15_06/sunglasses_w/card_2_DT.jpg" 
+      alt="Shifting Perspectives 2" 
+    />
+    
+    {/* Text Overlay container - Pinned to Top-Left Corner */}
+    <div className="relative md:absolute z-10 top-0 left-0 p-6 md:p-12 text-left text-black md:bg-transparent bg-white/80 md:backdrop-blur-none backdrop-blur-sm m-4 md:m-0 max-w-sm">
+      <p className="font-bold text-[18px] md:text-[20px] uppercase tracking-wide">Shifting Perspectives</p>
+      <p className="text-[13px] md:text-[14px] mt-2 font-light">
+        The freedom to reinvent your perspective <br className="hidden md:inline" /> through new combinations.
+      </p>
+    </div>
+  </div>
+</div>
 
       {/* Array of Bags 1 (Product Row) */}
       <div className="grid grid-cols-2 lg:grid-cols-4 bg-white gap-0.5 text-black font-bold border-b border-gray-200">

@@ -3,15 +3,66 @@
 import React, { useState } from "react";
 import NavBar from "@/app/NavBar";
 
+// 1. Centralized high-fashion product database matrix
+const PRODUCT_DATABASE: Record<string, {
+  name: string;
+  price: string;
+  image: string;
+  breadcrumbs: string;
+  description: string;
+  details: string;
+  sizing: string;
+}> = {
+  "summer-bags": {
+    name: "Prada Summer Bags",
+    price: "₦245,000",
+    image: "https://www.prada.com/content/dam/pradaspa/home_page/2026/03/essentials_bags/slider/summer_bags_3.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg",
+    breadcrumbs: "Bags / Essentials / Summer",
+    description: "Lightweight architectural integrity crafted for warm environments. Emphasizes organic textures paired seamlessly with modern luxury utility.",
+    details: "Woven fiber construction with leather contrast trim. Open top configuration with matching detachable canvas inner zip pouch.",
+    sizing: "Dimensions: 34cm height x 40cm width. Proportional standard shoulder drop length scaling."
+  },
+  "prada-route": {
+    name: "Prada Route Bag",
+    price: "₦310,000",
+    image: "https://www.prada.com/content/dam/pradaspa/home_page/2026/05/bags/route_2.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg",
+    breadcrumbs: "Bags / Travel / Route",
+    description: "An urban exploration profile featuring clean graphic lines and a performance-driven structure engineered for sleek modern movement.",
+    details: "Nylon base fabric with reinforced Saffiano leather base frames. Industrial silver-tone hardware systems. Front enamel brand insignia.",
+    sizing: "Medium capacity layout profile. Tailored adjustable webbed nylon crossbody strap system."
+  },
+  "1": { // Matches the "/products/1" route from your homepage grid snippet
+    name: "Prada Galleria Bag",
+    price: "₦198,000",
+    image: "https://www.prada.com/content/dam/pradaspa/home_page/2026/04/galleria/bags/galleria.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg",
+    breadcrumbs: "Bags / Icons / Galleria",
+    description: "The historical archetype of Prada leather craftsmanship. Formulated with architectural crosshatch texturing and clean tailored contours.",
+    details: "Saffiano leather handles and trim accents. Removable leather keychain wrapper. Front stitched metal triangle brand insignia plate.",
+    sizing: "Fits true to form layout. Follows historical proportional scaling benchmarks."
+  },
+  "prada-bonnie": {
+    name: "Prada Bonnie",
+    price: "₦285,000",
+    image: "https://www.prada.com/content/dam/pradaspa/home_page/2026/05/bags/bonnie_1.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg",
+    breadcrumbs: "Bags / New In / Bonnie Shoulder",
+    description: "A soft curved presentation reinterpreting classic archival mid-century aesthetics into minimalist daily luxury statement pieces.",
+    details: "Premium brushed calfskin leather framework. Invisible custom magnetic flap closure systems. Silk-screened monochromatic lining.",
+    sizing: "Compact profile design layout. Fits standard digital mobile form factors and compact wallets perfectly."
+  }
+};
+
 interface ProductParams {
   params: Promise<{ productId: string }>;
 }
 
 export default function ProductDetails({ params }: ProductParams) {
-  // Safe unwrap of async params for Next.js 15+ environments
+  // Safe unwrap of dynamic route parameters
   const { productId } = React.use(params);
 
-  // Accordion state toggles
+  // Fallback fallback selector mechanisms if matching item doesn't exist
+  const product = PRODUCT_DATABASE[productId] || PRODUCT_DATABASE["1"];
+
+  // Interaction State UI controls
   const [openSection, setOpenSection] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState<string>("Navy");
   const [selectedSize, setSelectedSize] = useState<string>("");
@@ -34,29 +85,29 @@ export default function ProductDetails({ params }: ProductParams) {
       <NavBar />
 
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 pt-6 lg:pt-12 pb-24">
-        {/* Core Layout Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
           
-          {/* COLUMN 1: EDITORIAL METADATA & ACCORDIONS (DESKTOP: LEFT) */}
+          {/* COLUMN 1: DYNAMIC ACCORDIONS & DATA LOOKUPS */}
           <div className="grid-cols-1 lg:col-span-3 order-2 lg:order-1 space-y-8 lg:sticky lg:top-28">
             <div>
+              {/* Dynamic Route breadcrumbs text */}
               <nav className="text-[10px] tracking-[0.2em] text-neutral-400 uppercase mb-2">
-                Bags / Prada Galleria
+                {product.breadcrumbs}
               </nav>
+              {/* Dynamic Name */}
               <h1 className="text-xl lg:text-2xl font-light tracking-wide uppercase text-neutral-900">
-                Prada Galleria Bag
+                {product.name}
               </h1>
+              {/* Dynamic Price */}
               <p className="text-[15px] font-medium tracking-wider mt-2 text-neutral-800">
-                ₦198,000
+                {product.price}
               </p>
             </div>
 
             <p className="text-[12px] leading-relaxed text-neutral-500 font-light tracking-wide max-w-md">
-              Fits true to size. Order your normal size. Follows standard US mens sizing. 
-              Size chart can be found in the sizing drawer below.
+              {product.description}
             </p>
 
-            {/* Micro-Interactive Accordion Group */}
             <div className="border-t border-neutral-200 divide-y divide-neutral-200">
               {/* Product Details Section */}
               <div className="py-3.5">
@@ -69,8 +120,7 @@ export default function ProductDetails({ params }: ProductParams) {
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openSection === "details" ? "max-h-40 mt-3" : "max-h-0"}`}>
                   <p className="text-[12px] text-neutral-500 font-light leading-relaxed">
-                    Saffiano leather handles and trim accents. Removable leather keychain wrapper. 
-                    Front stitched metal triangle brand insignia plate. Double interior organizational spaces.
+                    {product.details}
                   </p>
                 </div>
               </div>
@@ -86,8 +136,7 @@ export default function ProductDetails({ params }: ProductParams) {
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openSection === "sizing" ? "max-h-40 mt-3" : "max-h-0"}`}>
                   <p className="text-[12px] text-neutral-500 font-light leading-relaxed">
-                    Standard proportional scaling profile. For loose streetwear modifications, 
-                    we advise selecting one tier size greater than customary measurements.
+                    {product.sizing}
                   </p>
                 </div>
               </div>
@@ -103,28 +152,26 @@ export default function ProductDetails({ params }: ProductParams) {
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openSection === "delivery" ? "max-h-40 mt-3" : "max-h-0"}`}>
                   <p className="text-[12px] text-neutral-500 font-light leading-relaxed">
-                    Complimentary premium standard dispatch courier tracking routing. 
-                    Hassle-free dynamic returns accepted within 14 calendar operational dates.
+                    Complimentary premium standard dispatch courier tracking routing. Hassle-free dynamic returns accepted within 14 calendar operational dates.
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* COLUMN 2: IMMERSIVE HERO PORTRAIT VIEWPORT (DESKTOP: CENTER) */}
+          {/* COLUMN 2: DYNAMIC PORTRAIT VIEWPORT */}
           <div className="grid-cols-1 lg:col-span-6 order-1 lg:order-2">
             <div className="bg-neutral-50 overflow-hidden aspect-[4/5] w-full max-w-3xl mx-auto border border-neutral-100">
               <img 
                 className="h-full w-full object-cover mix-blend-darken hover:scale-102 transition-transform duration-[1500ms] ease-out" 
-                src="https://www.prada.com/content/dam/pradaspa/home_page/2026/04/galleria/bags/galleria.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" 
-                alt="Prada Galleria Classic Leather Presentation" 
+                src={product.image} 
+                alt={product.name} 
               />
             </div>
           </div>
 
-          {/* COLUMN 3: TRANSACTION ARCHITECTURE PANEL (DESKTOP: RIGHT) */}
+          {/* COLUMN 3: TRANSACTION STACK PANEL */}
           <div className="grid-cols-1 lg:col-span-3 order-3 space-y-8 lg:sticky lg:top-28 lg:pl-4">
-            {/* Color Swatch Picker */}
             <div className="space-y-3">
               <p className="text-[11px] uppercase tracking-[0.15em] text-neutral-500">
                 Selected Color: <span className="font-bold text-black">{selectedColor}</span>
@@ -145,7 +192,6 @@ export default function ProductDetails({ params }: ProductParams) {
               </div>
             </div>
 
-            {/* Size Dropdown Selection Panel */}
             <div className="space-y-3">
               <label htmlFor="size-select" className="block text-[11px] uppercase tracking-[0.15em] text-neutral-500">
                 Select Size
@@ -170,7 +216,6 @@ export default function ProductDetails({ params }: ProductParams) {
               </div>
             </div>
 
-            {/* CTA Bag Submission Button Container */}
             <button 
               disabled={!selectedSize}
               className={`w-full h-12 text-[11px] tracking-[0.25em] font-bold transition-all duration-400 focus:outline-none ${
