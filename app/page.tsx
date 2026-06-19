@@ -7,7 +7,11 @@ export default function Home() {
 
     <div>
       {/* First-Video */}
-      <video className="relative" src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/hero/w/loop_DT_1.mp4#t=0.001" controls></video>
+      <video className="relative" 
+      autoPlay
+      muted
+      loop
+      playsInline  src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/hero/w/loop_DT_1.mp4#t=0.001" controls></video>
       
       <NavBar />
 
@@ -56,15 +60,31 @@ export default function Home() {
       </div>
       
         {/* Pair 1 */}
-      <div className="flex mt-10 bg-gray-400 h-180 justify-between items-center px-20">
+      <div className="flex mt-10 bg-gray-50 h-180 justify-between items-center px-20">
+
+        <Link
+        href="/discover"
+        >
         <div className="flex flex-col gap-4 text-[14px] justify-center ml-15 items-center">
-          <img className="h-64 w-auto" src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/sunglasses/w/editorial_DT.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1680.1680.jpg" alt="" />
+          <img className="h-64 w-auto" src="https://www.prada.com/content/dam/pradaspa/home_page/2026/06/may_issue/sunglasses_w/card_small_DT.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1680.1680.jpg" alt="" />
           <p className="text-[18px] font-semibold">Women's Sunglasses</p>
           <p className="text-[14px]">Bold Reflectiions</p>
           <h1 className="text-[13px] font-semibold">DISCOVER <hr /></h1>
         </div>
-        <video className="h-150 w-auto" src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/sunglasses/w/loop_DT.mp4#t=0.001" controls ></video>
+        </Link>
+        <video className="h-150 w-auto" autoPlay
+      muted
+      loop
+      playsInline src="https://www.prada.com/content/dam/pradaspa/home_page/2026/06/may_issue/sunglasses_w/loop_DT.mp4#t=0.001" controls ></video>
       </div>
+
+      {/* Big-Video 3 */}
+
+      <video className="relative"
+       autoPlay
+      muted
+      loop
+      playsInline src="https://www.prada.com/content/dam/pradaspa/home_page/2026/06/may_issue/new_in/w/loop_DT.mp4#t=0.001" controls></video>
 
         {/* White-Part 2 */}
       <div className="bg-white h-50 flex flex-col justify-center items-center gap-6">
@@ -101,11 +121,15 @@ export default function Home() {
 
       </div>
 
-      {/* Big-Video 2 */}
+      {/* Big-Video 3 */}
       <div>
-        <video className="relative" src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/explore/loop_DT.mp4#t=0.001" controls></video>
+        <video className="relative"
+      autoPlay
+      muted
+      loop
+      playsInline src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/explore/loop_DT.mp4#t=0.001" controls></video>
 
-        <div className="text-white  absolute w-full flex flex-col justify-center items-center gap-2 top-830">
+        <div className="text-white  absolute w-full flex flex-col justify-center items-center gap-2 top-1020">
         <h1 className="text-[30px] font-semibold ">Prada Explore</h1>
         <p className="text-[13px] text-center">Bold elegance and utility in a versatile bag, with 3D pockets and interiors <br /> designed for every personal journey.</p>
 
@@ -132,7 +156,7 @@ export default function Home() {
 
       {/* Array of Bags */}
 
-      <div className="flex flex-col justify-between h-160 py-5  gap-0.5">
+      <div className="flex flex-col justify-between h-160 py-5 cursor-pointer gap-0.5">
 
         <div className="flex justify-between gap-0.5">
           <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
@@ -145,10 +169,14 @@ export default function Home() {
         <p className="mt-4">Prada Route</p>
       </div>
         
+       <Link
+       href="/products/1"
+       >
        <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
          <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/04/galleria/bags/galleria.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="" />
           <p className="mt-4">Prada Galleria</p>
        </div>
+       </Link>
 
         <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
           <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/bags/bonnie_1.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="" />
@@ -163,10 +191,13 @@ export default function Home() {
 
       {/* Pair 2 */}
 
-      <div className="flex mt-10 bg-gray-200 h-180 justify-between items-center px-20">
-        <video className="h-150 w-auto" src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/sunglasses/m/loop_DT.mp4#t=0.001" controls ></video>
+      <div className="flex mt-10 bg-gray-50 h-180 justify-between items-center px-20">
+        <video className="h-150 w-auto" autoPlay
+      muted
+      loop
+      playsInline src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/sunglasses/m/loop_DT.mp4#t=0.001" controls ></video>
 
-        <div className="flex flex-col gap-4 text-[14px] justify-center mr-20 items-center">
+        <div className="flex flex-col gap-4 text-[14px] justify-center mr-20 items-center cursor-pointer">
           <img className="h-64 w-auto" src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/sunglasses/m/editorial_DT.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1680.1680.jpg" alt="" />
           <p className="text-[18px] font-semibold">Men's Sunglasses</p>
           <p className="text-[14px]">New Geometric Shapes</p>

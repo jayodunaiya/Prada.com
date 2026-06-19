@@ -45,7 +45,10 @@ export default function For_Him() {
 
     {/* Big Video */}
 
-    <video className="absolute " src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/explore/hero/loop_DT.mp4#t=0.001" autoPlay muted controls></video>
+    <video className="absolute" autoPlay
+      muted
+      loop
+      playsInline src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/explore/hero/loop_DT.mp4#t=0.001" controls></video>
 
 {/* White-Part */}
     <div className="bg-white h-50 flex flex-col justify-center items-center gap-3">

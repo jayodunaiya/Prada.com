@@ -60,7 +60,7 @@ export default function Sidebar() {
         <div className="flex items-center gap-2.5 px-2.5 py-2.5 rounded-lg bg-gray-50">
           <div
             className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center
-            text-[12px] font-medium text-orange-800 shrink-0"
+            text-[12px] font-medium text-gray-800 shrink-0"
           >
             AU
           </div>
@@ -74,7 +74,7 @@ export default function Sidebar() {
         <button
           onClick={handleLogout}
           className="w-full mt-2 py-2 flex items-center justify-center gap-1.5
-            text-[12.5px] text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+            text-[12.5px] text-black hover:text-red-500 hover:bg-gray-50 rounded-lg transition-colors"
         >
           <LogOut size={14} />
           Log out

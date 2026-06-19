@@ -4,7 +4,7 @@ import NavBar from "@/app/NavBar";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { loginUser } from "@/api/api";
+import { loginUser } from "@/app/api/api";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -135,7 +135,7 @@ export default function LoginPage() {
               </div>
 
               <Link
-               href="/Admin"
+               href="/Admin/dashboard"
               >
 
               <button

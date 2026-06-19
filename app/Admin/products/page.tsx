@@ -313,7 +313,7 @@ export default function AdminProductsPage() {
               </button>
               <button
                 onClick={saveProduct}
-                className="px-4 py-2 text-[12.5px] font-medium text-white bg-orange-600 rounded-lg hover:bg-orange-700 transition-colors"
+                className="px-4 py-2 text-[12.5px] font-medium text-white bg-gray-700  rounded-lg hover:bg-black transition-colors"
               >
                 {editProduct ? "Save changes" : "Add product"}
               </button>
