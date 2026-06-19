@@ -1,233 +1,303 @@
 import Footer from "./Footer/Footer"
 import NavBar from "./NavBar" 
 import Link from "next/link"
+
 export default function Home() {
-
   return (
-
-    <div>
-      {/* First-Video */}
-      <video className="relative" 
-      autoPlay
-      muted
-      loop
-      playsInline  src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/hero/w/loop_DT_1.mp4#t=0.001" controls></video>
+    <div className="min-h-screen bg-white text-black font-sans antialiased overflow-x-hidden selection:bg-neutral-200">
       
-      <NavBar />
+      {/* ================= HERO VIDEO BANNER ================= */}
+      <div className="relative w-full h-[70vh] lg:h-screen bg-neutral-950 flex items-center justify-center">
+        <video 
+          className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none" 
+          autoPlay
+          muted
+          loop
+          playsInline  
+          src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/hero/w/loop_DT_1.mp4#t=0.001" 
+        />
+        
+        {/* Monochromatic Overlay Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/10 mix-blend-multiply" />
+        
+        {/* Navigation Placement */}
+        <div className="absolute top-0 left-0 w-full z-50">
+          <NavBar />
+        </div>
 
-        {/*  The Digital Edit */}
-
-      <div className="text-white absolute w-full flex flex-col justify-center items-center gap-2 top-130">
-        <h1 className="text-[10px]">THE DIGITAL EDIT</h1>
-        <p className="text-[22px] font-semibold">Days of Summer</p>
-        <p className="text-[12px]">FOR HER </p>
-      </div>
-
-        {/* White-Part */}
-      <div className="bg-white h-40 flex flex-col justify-center items-center gap-6">
-        <p className="text-black text-center text-[14px] ">Lightness and pure textures shape the essence of summer in the new <br /> Prada collection, with an online exclusive edit.</p>
-
-        <div className="flex gap-5">
-          <h1 className="text-black text-[14px] font-semibold">WOMEN <hr /></h1>
-          <h1 className="text-black text-[14px] font-semibold">MEN <hr /> </h1>
+        {/* Hero Copy Deck */}
+        <div className="relative z-10 text-white text-center flex flex-col justify-center items-center gap-3 px-4">
+          <h1 className="text-[10px] tracking-[0.35em] uppercase font-medium text-neutral-200">THE DIGITAL EDIT</h1>
+          <p className="text-2xl md:text-4xl font-extralight tracking-widest uppercase">Days of Summer</p>
+          <span className="text-[9px] tracking-[0.4em] font-semibold text-neutral-300 border-b border-white/40 pb-0.5 uppercase cursor-pointer hover:text-white hover:border-white transition-colors duration-300">FOR HER</span>
         </div>
       </div>
 
-      {/* Pictures Part */}
+      {/* ================= EDITORIAL MESSAGE BLOCK 1 ================= */}
+      <div className="bg-white py-16 lg:py-28 px-6 flex flex-col justify-center items-center gap-8">
+        <p className="text-black text-center text-xs md:text-[13px] max-w-xl font-light tracking-wide leading-relaxed">
+          Lightness and pure textures shape the essence of summer in the new Prada collection, featuring an online exclusive preview edit.
+        </p>
 
-      <div className="flex justify-between">
-
-        <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-        <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/slider/w/01.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="" />
-        <p>Prada Buckle cutton and leather bag</p>
+        <div className="flex gap-12">
+          <h2 className="text-black text-[11px] font-medium tracking-[0.25em] cursor-pointer group relative pb-1">
+            WOMEN 
+            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+          </h2>
+          <h2 className="text-black text-[11px] font-medium tracking-[0.25em] cursor-pointer group relative pb-1">
+            MEN 
+            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+          </h2>
+        </div>
       </div>
 
-      <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-        <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/slider/w/02.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="" />
-        <p>Cotton boucle crop top</p>
+      {/* ================= EDITORIAL PRODUCT SELECTION GRID ================= */}
+      <div className="px-4 lg:px-12 pb-24">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-10 lg:gap-x-2">
+          
+          {/* Item 1 */}
+          <div className="flex flex-col gap-3 text-center group cursor-pointer">
+            <div className="aspect-[1/1] bg-neutral-50 overflow-hidden relative">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/slider/w/01.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Prada Bag" className="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" />
+            </div>
+            <p className="px-2 text-xs font-light tracking-wide text-neutral-800 transition-colors group-hover:text-black mt-1">Prada Buckle cotton and leather bag</p>
+          </div>
+
+          {/* Item 2 */}
+          <div className="flex flex-col gap-3 text-center group cursor-pointer">
+            <div className="aspect-[1/1] bg-neutral-50 overflow-hidden relative">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/slider/w/02.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Crop Top" className="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" />
+            </div>
+            <p className="px-2 text-xs font-light tracking-wide text-neutral-800 transition-colors group-hover:text-black mt-1">Cotton boucle crop top</p>
+          </div>
+          
+          {/* Item 3 */}
+          <div className="flex flex-col gap-3 text-center group cursor-pointer">
+            <div className="aspect-[1/1] bg-neutral-50 overflow-hidden relative">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/slider/w/03.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Raffia Hat" className="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" />
+            </div>
+            <p className="px-2 text-xs font-light tracking-wide text-neutral-800 transition-colors group-hover:text-black mt-1">Raffia hat</p>
+          </div>
+
+          {/* Item 4 */}
+          <div className="flex flex-col gap-3 text-center group cursor-pointer">
+            <div className="aspect-[1/1] bg-neutral-50 overflow-hidden relative">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/slider/w/04.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Sandals" className="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" />
+            </div>
+            <p className="px-2 text-xs font-light tracking-wide text-neutral-800 transition-colors group-hover:text-black mt-1">Leather sandals with floral ornament</p>
+          </div>
+      </div>
       </div>
         
-       <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-         <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/slider/w/03.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="" />
-          <p>Raffia hat</p>
-       </div>
-
-        <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-          <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/slider/w/04.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="" />
-          <p>Leather sandals with floral ornament</p>
-        </div>
-
-      </div>
-      
-        {/* Pair 1 */}
-      <div className="flex mt-10 bg-gray-50 h-180 justify-between items-center px-20">
-
-        <Link
-        href="/discover"
-        >
-        <div className="flex flex-col gap-4 text-[14px] justify-center ml-15 items-center">
-          <img className="h-64 w-auto" src="https://www.prada.com/content/dam/pradaspa/home_page/2026/06/may_issue/sunglasses_w/card_small_DT.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1680.1680.jpg" alt="" />
-          <p className="text-[18px] font-semibold">Women's Sunglasses</p>
-          <p className="text-[14px]">Bold Reflectiions</p>
-          <h1 className="text-[13px] font-semibold">DISCOVER <hr /></h1>
-        </div>
+      {/* ================= SPLIT RUNWAY EDITORIAL ROW 1 ================= */}
+      <div className="bg-neutral-50 py-16 px-4 lg:px-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 border-t border-b border-neutral-100">
+        <Link href="/discover" className="w-full lg:w-1/2 group">
+          <div className="flex flex-col gap-4 text-center items-center">
+            <div className="w-full max-w-[420px] aspect-square overflow-hidden bg-white mb-2 shadow-xs">
+              <img className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-700 ease-out" src="https://www.prada.com/content/dam/pradaspa/home_page/2026/06/may_issue/sunglasses_w/card_small_DT.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1680.1680.jpg" alt="Sunglasses Collection" />
+            </div>
+            <p className="text-lg font-light tracking-wide text-neutral-900 uppercase">Women's Sunglasses</p>
+            <p className="text-xs text-neutral-500 tracking-widest font-light -mt-1 italic">Bold Reflections</p>
+            <span className="text-[11px] font-medium tracking-[0.25em] border-b border-black pb-0.5 mt-3 group-hover:text-neutral-500 group-hover:border-neutral-300 transition-colors duration-300">DISCOVER</span>
+          </div>
         </Link>
-        <video className="h-150 w-auto" autoPlay
-      muted
-      loop
-      playsInline src="https://www.prada.com/content/dam/pradaspa/home_page/2026/06/may_issue/sunglasses_w/loop_DT.mp4#t=0.001" controls ></video>
-      </div>
-
-      {/* Big-Video 3 */}
-
-      <video className="relative"
-       autoPlay
-      muted
-      loop
-      playsInline src="https://www.prada.com/content/dam/pradaspa/home_page/2026/06/may_issue/new_in/w/loop_DT.mp4#t=0.001" controls></video>
-
-        {/* White-Part 2 */}
-      <div className="bg-white h-50 flex flex-col justify-center items-center gap-6">
-        <p className="text-black text-center text-[14px] ">Essential volumes, natural materials and functional details define the new <br /> season, reinterpreting the codes of summer style.</p>
-
-        <div className="flex gap-5">
-          <h1 className="text-black text-[14px] font-semibold">WOMEN <hr /></h1>
-          <h1 className="text-black text-[14px] font-semibold">MEN <hr /> </h1>
+        <div className="w-full lg:w-1/2 aspect-video lg:aspect-[4/5] max-h-[600px] overflow-hidden bg-neutral-950">
+          <video className="w-full h-full object-cover opacity-95" autoPlay muted loop playsInline src="https://www.prada.com/content/dam/pradaspa/home_page/2026/06/may_issue/sunglasses_w/loop_DT.mp4#t=0.001" />
         </div>
       </div>
 
-
-      <div className="flex h-125 justify-around gap-0.5">
-
-        <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-        <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/bags/route_1.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="" />
-        <p>Women's Bags</p>
+      {/* ================= CINEMATIC LOOKBOOK COVER WIDESCREEN ================= */}
+      <div className="w-full bg-neutral-950 relative aspect-[16/10] md:aspect-video max-h-[80vh] overflow-hidden">
+        <video 
+          className="w-full h-full object-cover mix-blend-screen" 
+          autoPlay 
+          muted 
+          loop 
+          playsInline 
+          src="https://www.prada.com/content/dam/pradaspa/home_page/2026/06/may_issue/new_in/w/loop_DT.mp4#t=0.001" 
+        />
       </div>
 
-      <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-        <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/04/may_issue/products_days_of_summer/w/rtw_1.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="" />
-        <p>Women's Ready-to-Wear</p>
-      </div>
-        
-       <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-         <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/04/may_issue/products_days_of_summer/w/shoes_1.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="" />
-          <p>Women's Shoes</p>
-       </div>
-
-        <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-          <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/slider_2/w_hat.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="" />
-          <p>Women's Accessories</p>
+      {/* ================= EDITORIAL MESSAGE BLOCK 2 ================= */}
+      <div className="bg-white py-16 lg:py-24 px-6 flex flex-col justify-center items-center gap-8">
+        <p className="text-black text-center text-xs lg:text-[13px] max-w-xl font-light tracking-wide leading-relaxed">
+          Essential volumes, natural elements and functional design markers define the new season, effortlessly reinterpreting classic summer styles.
+        </p>
+        <div className="flex gap-12">
+          <h2 className="text-black text-[11px] font-medium tracking-[0.25em] cursor-pointer group relative pb-1">
+            WOMEN<span className="absolute bottom-0 left-0 w-full h-[1px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+          </h2>
+          <h2 className="text-black text-[11px] font-medium tracking-[0.25em] cursor-pointer group relative pb-1">
+            MEN<span className="absolute bottom-0 left-0 w-full h-[1px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+          </h2>
         </div>
-
       </div>
 
-      {/* Big-Video 3 */}
-      <div>
-        <video className="relative"
-      autoPlay
-      muted
-      loop
-      playsInline src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/explore/loop_DT.mp4#t=0.001" controls></video>
-
-        <div className="text-white  absolute w-full flex flex-col justify-center items-center gap-2 top-1020">
-        <h1 className="text-[30px] font-semibold ">Prada Explore</h1>
-        <p className="text-[13px] text-center">Bold elegance and utility in a versatile bag, with 3D pockets and interiors <br /> designed for every personal journey.</p>
-
-        <div className="flex gap-6">
-          <h1 className="text-[13px] font-semibold"><Link href="/ForHer">FOR HER</Link> <hr className="border" /> </h1>
+      {/* ================= CATEGORY DIRECTORY COLLECTIONS GRID ================= */}
+      <div className="px-4 lg:px-12 pb-24">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-10 lg:gap-x-2">
           
-            <h1 className="text-[13px] font-semibold"><Link href="/ForHim">FOR HIM</Link> <hr className="border" /> </h1>
-        </div>
+          <div className="flex flex-col gap-3 text-center group cursor-pointer">
+            <div className="aspect-[1/1] overflow-hidden bg-neutral-50 relative">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/bags/route_1.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Bags" className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out" />
+            </div>
+            <p className="text-xs font-light tracking-widest text-neutral-800 uppercase mt-1">Women's Bags</p>
+          </div>
+
+          <div className="flex flex-col gap-3 text-center group cursor-pointer">
+            <div className="aspect-[1/1] overflow-hidden bg-neutral-50 relative">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/04/may_issue/products_days_of_summer/w/rtw_1.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Ready to wear" className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out" />
+            </div>
+            <p className="text-xs font-light tracking-widest text-neutral-800 uppercase mt-1">Women's Ready-to-Wear</p>
+          </div>
+
+          <div className="flex flex-col gap-3 text-center group cursor-pointer">
+            <div className="aspect-[1/1] overflow-hidden bg-neutral-50 relative">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/04/may_issue/products_days_of_summer/w/shoes_1.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Shoes" className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out" />
+            </div>
+            <p className="text-xs font-light tracking-widest text-neutral-800 uppercase mt-1">Women's Shoes</p>
+          </div>
+
+          <div className="flex flex-col gap-3 text-center group cursor-pointer">
+            <div className="aspect-[1/1] overflow-hidden bg-neutral-50 relative">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/slider_2/w_hat.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Accessories" className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out" />
+            </div>
+            <p className="text-xs font-light tracking-widest text-neutral-800 uppercase mt-1">Women's Accessories</p>
+          </div>
+               </div>
       </div>
-      </div>
 
-       {/* Bags Collections */}
-      <div className="bg-white h-70 flex flex-col justify-center items-center gap-3 mt-6">
-        <p className="text-[25px] font-semibold">Bag's Collections</p>
-        <p className="text-black text-center text-[14px] ">From the bags that shaped Prada’s iconic vision to the newest designs, <br /> past and present come together in functional elegance with a deeply <br />
-         modern spirit.</p>
-
-        <div className="flex gap-5 mt-4">
-          <h1 className="text-black text-[13px] font-semibold"> WOMEN <hr className="mt-2 border" /></h1> 
-          <h1 className="text-black text-[13px] font-semibold">MEN <hr className="mt-2 border" /> </h1>
-        </div>
-      </div>
-
-
-      {/* Array of Bags */}
-
-      <div className="flex flex-col justify-between h-160 py-5 cursor-pointer gap-0.5">
-
-        <div className="flex justify-between gap-0.5">
-          <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-        <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/03/essentials_bags/slider/summer_bags_3.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="" />
-        <p className="mt-4">Prada Summer Bags</p>
-      </div>
-
-      <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-        <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/bags/route_2.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="" />
-        <p className="mt-4">Prada Route</p>
-      </div>
+      {/* ================= PRADA EXPLORE FULL LANDSCAPE BANNER ================= */}
+      <div className="relative lg:h-[85vh] bg-neutral-950 flex items-center justify-center overflow-hidden">
+        <video 
+          className="absolute inset-0 w-full h-full object-cover select-none"
+          autoPlay
+          muted
+          loop
+          playsInline 
+          src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/explore/loop_DT.mp4#t=0.001" 
+        />
+        <div className="absolute inset-0 bg-black/15 mix-blend-multiply" />
         
-       <Link
-       href="/products/1"
-       >
-       <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-         <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/04/galleria/bags/galleria.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="" />
-          <p className="mt-4">Prada Galleria</p>
-       </div>
-       </Link>
+        {/* Transparent Interactive Dashboard Container */}
+        <div className="relative z-10 text-white text-center flex flex-col justify-center items-center gap-4 px-6 max-w-2xl">
+          <h1 className="text-2xl lg:text-4xl font-extralight tracking-[0.25em] uppercase">Prada Explore</h1>
+          <p className="text-xs text-neutral-200 font-light tracking-wide leading-relaxed max-w-md">
+            Bold elegance paired seamlessly with utility in an architectural build, complete with curated spaces designed for contemporary movement.
+          </p>
 
-        <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-          <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/bags/bonnie_1.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="" />
-          <p className="mt-4">Prada Bonnie</p>
-        </div>
-        </div>
-
-            <div className="flex justify-center items-center">
-              <hr  className="w-50 border" /><hr className="w-30 border border-gray-300" />
-              </div>
-      </div>
-
-      {/* Pair 2 */}
-
-      <div className="flex mt-10 bg-gray-50 h-180 justify-between items-center px-20">
-        <video className="h-150 w-auto" autoPlay
-      muted
-      loop
-      playsInline src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/sunglasses/m/loop_DT.mp4#t=0.001" controls ></video>
-
-        <div className="flex flex-col gap-4 text-[14px] justify-center mr-20 items-center cursor-pointer">
-          <img className="h-64 w-auto" src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/sunglasses/m/editorial_DT.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1680.1680.jpg" alt="" />
-          <p className="text-[18px] font-semibold">Men's Sunglasses</p>
-          <p className="text-[14px]">New Geometric Shapes</p>
-          <h1 className="text-[13px] font-semibold">DISCOVER <hr className="border" /></h1>
+          <div className="flex gap-8 mt-4">
+            <Link href="/women" className="text-[11px] font-medium tracking-[0.25em] border-b border-white/60 pb-1 hover:text-neutral-200 hover:border-white transition-all duration-300">
+              FOR HER
+            </Link>
+            <Link href="/men" className="text-[11px] font-medium tracking-[0.25em] border-b border-white/60 pb-1 hover:text-neutral-200 hover:border-white transition-all duration-300">
+              FOR HIM
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* Black-Part Array */}
+      {/* ================= BAG ARCHIVE HEADINGS ================= */}
+      <div className="bg-white py-16 lg:py-24 px-6 flex flex-col justify-center items-center gap-4">
+        <h2 className="text-xl lg:text-3xl font-extralight tracking-widest uppercase">Bag's Collections</h2>
+        <p className="text-neutral-500 text-center text-xs lg:text-[13px] max-w-xl font-light tracking-wide leading-relaxed">
+          From the historical contours that established our vision to tailored seasonal pieces, architectural integrity fuses seamlessly with modern function.
+        </p>
 
-      <div className="flex flex-col items-center h-160 py-5  gap-0.5 bg-black">
-        <p className="text-white text-[25px] font-semibold py-10">Pradasphere News</p>
-        <div className="flex justify-between carousel gap-5 overflow-hidden">
-         <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-          <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/04/pradasphere_component/fw_DT.jpg/_jcr_content/renditions/cq5dam.web.3360.3360.jpg" alt="" />
-          <p className="text-white text-[14px] font-semibold mt-2">Pradasphere: Days of Summer</p>
-         </div>
+        <div className="flex gap-8 mt-4">
+          <span className="text-black text-[11px] font-semibold tracking-widest cursor-pointer border-b border-black pb-0.5">WOMEN</span> 
+          <span className="text-black text-[11px] font-semibold tracking-widest cursor-pointer border-b border-transparent hover:border-black pb-0.5 transition-colors duration-300">MEN</span>
+        </div>
+      </div>
+
+      {/* ================= BAG CATALOGUE CARDS MATRIX ================= */}
+      <div className="px-4 lg:px-12 pb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-12 lg:gap-x-2">
           
-          <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-            <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/pradasphere/pradasphere_DT.jpg/_jcr_content/renditions/cq5dam.web.3360.3360.jpg" alt="" />
-            <p className="text-white text-[14px] font-semibold mt-2">Pradasphere: Days of Summer</p>
+          <div className="flex flex-col gap-2 text-center group cursor-pointer">
+            <div className="aspect-[1/1] overflow-hidden bg-neutral-50">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/03/essentials_bags/slider/summer_bags_3.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Summer Bag" className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-700" />
+            </div>
+            <p className="mt-3 text-xs font-light tracking-wide text-neutral-800">Prada Summer Bags</p>
+          </div>
+
+          <div className="flex flex-col gap-2 text-center group cursor-pointer">
+            <div className="aspect-[1/1] overflow-hidden bg-neutral-50">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/bags/route_2.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Prada Route" className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-700" />
+            </div>
+            <p className="mt-3 text-xs font-light tracking-wide text-neutral-800">Prada Route</p>
+          </div>
+            
+          <Link href="/products/1" className="flex flex-col gap-2 text-center group">
+            <div className="aspect-[1/1] overflow-hidden bg-neutral-50">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/04/galleria/bags/galleria.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Galleria Bag" className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-700" />
+            </div>
+            <p className="mt-3 text-xs font-medium tracking-wide text-neutral-900 group-hover:text-neutral-500 transition-colors">Prada Galleria</p>
+          </Link>
+
+          <div className="flex flex-col gap-2 text-center group cursor-pointer">
+            <div className="aspect-[1/1] overflow-hidden bg-neutral-50">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/bags/bonnie_1.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Prada Bonnie" className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-700" />
+            </div>
+            <p className="mt-3 text-xs font-light tracking-wide text-neutral-800">Prada Bonnie</p>
+          </div>
+
+        </div>
+
+        {/* Minimal Editorial Page Brake Elements */}
+        <div className="flex justify-center items-center mt-20 mb-4 opacity-60">
+          <div className="w-16 h-[1px] bg-neutral-800"></div>
+          <div className="w-12 h-[1px] bg-neutral-200"></div>
+        </div>
+      </div>
+
+      {/* ================= SPLIT RUNWAY EDITORIAL ROW 2 ================= */}
+      <div className="bg-neutral-50 py-16 px-4 lg:px-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 border-t border-b border-neutral-100">
+        <div className="w-full lg:w-1/2 aspect-video lg:aspect-[4/5] max-h-[600px] overflow-hidden bg-neutral-950 order-2 lg:order-1">
+          <video className="w-full h-full object-cover opacity-95" autoPlay muted loop playsInline src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/sunglasses/m/loop_DT.mp4#t=0.001" />
+        </div>
+
+        <div className="w-full lg:w-1/2 flex flex-col gap-4 text-center items-center order-1 lg:order-2 group cursor-pointer">
+          <div className="w-full max-w-[420px] aspect-square overflow-hidden bg-white mb-2 shadow-xs">
+            <img className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-700 ease-out" src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/sunglasses/m/editorial_DT.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1680.1680.jpg" alt="Men Sunglasses Collection" />
+          </div>
+          <p className="text-lg font-light tracking-wide text-neutral-900 uppercase">Men's Sunglasses</p>
+          <p className="text-xs text-neutral-500 tracking-widest font-light -mt-1 italic">New Geometric Shapes</p>
+          <span className="text-[11px] font-medium tracking-[0.25em] border-b border-black pb-0.5 mt-3 group-hover:text-neutral-500 group-hover:border-neutral-300 transition-colors duration-300">DISCOVER</span>
+        </div>
+      </div>
+
+      {/* ================= PRADASPHERE DIGEST MAGAZINE PANEL ================= */}
+      <div className="flex flex-col items-center py-20 px-4 gap-12 bg-neutral-950 text-white">
+        <h2 className="text-xl lg:text-3xl font-extralight tracking-[0.3em] uppercase">Pradasphere News</h2>
+        
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-4 max-w-6xl px-2 lg:px-0">
+          
+          <div className="flex flex-col gap-4 text-center items-center group cursor-pointer">
+            <div className="w-full aspect-[1/1] overflow-hidden bg-neutral-900">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/04/pradasphere_component/fw_DT.jpg/_jcr_content/renditions/cq5dam.web.3360.3360.jpg" alt="Magazine editorial" className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-all duration-500 scale-100 group-hover:scale-[1.01]" />
+            </div>
+            <p className="text-xs font-light tracking-widest text-neutral-300 uppercase mt-1 group-hover:text-white transition-colors">Pradasphere: Days of Summer</p>
           </div>
           
-          <div className="flex flex-col gap-4 text-[14px] font-semibold justify-center items-center">
-            <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/04/pradasphere_component/frames_DT.jpg/_jcr_content/renditions/cq5dam.web.3360.3360.jpg" alt="" />
-            <p className="text-white text-[14px] font-semibold mt-2">Pradasphere: Frames</p>
+          <div className="flex flex-col gap-4 text-center items-center group cursor-pointer">
+            <div className="w-full aspect-[1/1] overflow-hidden bg-neutral-900">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/pradasphere/pradasphere_DT.jpg/_jcr_content/renditions/cq5dam.web.3360.3360.jpg" alt="Magazine editorial 2" className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-all duration-500 scale-100 group-hover:scale-[1.01]" />
+            </div>
+            <p className="text-xs font-light tracking-widest text-neutral-300 uppercase mt-1 group-hover:text-white transition-colors">Pradasphere: Days of Summer</p>
           </div>
-     </div>
+          
+          <div className="flex flex-col gap-4 text-center items-center group cursor-pointer">
+            <div className="w-full aspect-[1/1] overflow-hidden bg-neutral-900">
+              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/04/pradasphere_component/frames_DT.jpg/_jcr_content/renditions/cq5dam.web.3360.3360.jpg" alt="Magazine editorial 3" className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-all duration-500 scale-100 group-hover:scale-[1.01]" />
+            </div>
+            <p className="text-xs font-light tracking-widest text-neutral-300 uppercase mt-1 group-hover:text-white transition-colors">Pradasphere: Frames</p>
+          </div>
 
-    </div>
+        </div>
+      </div>
 
       <Footer />
     </div>
-  )}
+  )
+}

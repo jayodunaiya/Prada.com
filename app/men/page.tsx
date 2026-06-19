@@ -1,168 +1,158 @@
 import NavBar from "../NavBar";
 import Footer from "../Footer/Footer";
+import Link from "next/link";
+
 export default function For_Him() {
-    return(
-
- <div>
-   {/* Nav-Bar */}
-    <NavBar/>
-    <div className="h-84 bg-white">
-      <div className="flex justify-between px-10 pt-15 z-50 sticky top-0">
-        <p className="text-gray-400 text-[11px]">17 PRODUCTS</p>
-        <p className="text-[11px] font-bold">FILTERS . SORT BY: SUGGESTED</p>
-       </div>
-
-      {/* Bags */}
-        <div className="flex justify-center gap-0.5 w-full pt-18 text-black">
-        
-      <div className="flex flex-col text-[12px] justify-center items-center">
-          <img className="h-32 w-32"  src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/explore_1.jpg" alt="" />
-          <p className="mt-4 font-semibold">Prada Explore</p>
+  return (
+    <div className="min-h-screen bg-white font-sans antialiased selection:bg-neutral-200">
+      {/* Nav-Bar */}
+      <NavBar />
+      
+      {/* Filters Sticky Bar */}
+      <div className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div className="flex justify-between items-center px-4 py-4 md:px-10 md:py-5">
+          <p className="text-gray-400 text-[10px] md:text-[11px] tracking-widest">17 PRODUCTS</p>
+          <p className="text-[10px] md:text-[11px] font-bold tracking-widest cursor-pointer hover:opacity-70 transition-opacity">
+            FILTERS . SORT BY: SUGGESTED
+          </p>
         </div>
+           </div>
 
-      <div className="flex flex-col text-[12px] items-center">
-        <img  className="h-32 w-32" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/soft_bag_1.jpg" alt="" />
-        <p className="mt-4 font-semibold">Prada Soft Bags</p>
-      </div>
-        
-       <div className="flex flex-col  text-[12px] items-center">
-         <img className="h-32 w-32" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/bonnie_1.jpg" alt="" />
-          <p className="mt-4 font-semibold">Prada Bonnie</p>
-       </div>
-
-        <div className="flex flex-col text-[12px] justify-center items-center">
-          <img className="h-32 w-32" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/brique_2.jpg" alt="" />
-          <p className="mt-4 font-semibold">Prada Brique</p>
+      {/* Category Icons Navigation Carousel */}
+      <div className="w-full bg-white px-4 py-6 border-b border-gray-100 overflow-hidden">
+        <div className="flex overflow-x-auto md:overflow-x-visible md:justify-center gap-4 md:gap-8 pb-3 md:pb-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          {[
+            { name: "Prada Explore", img: "explore_1.jpg" },
+            { name: "Prada Soft Bags", img: "soft_bag_1.jpg" },
+            { name: "Prada Bonnie", img: "bonnie_1.jpg" },
+            { name: "Prada Brique", img: "brique_2.jpg" },
+            { name: "Prada Re-Nylon", img: "backpacks_1.jpg" },
+          ].map((item, idx) => (
+            <div key={idx} className="flex flex-col text-[11px] md:text-[12px] items-center flex-shrink-0 w-24 md:w-32 cursor-pointer group">
+              <div className="overflow-hidden bg-neutral-50 rounded-xs">
+                <img 
+                  className="h-24 w-24 md:h-32 md:w-32 object-cover group-hover:scale-105 transition-transform duration-500 ease-out" 
+                  src={`https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/${item.img}`} 
+                  alt={item.name} 
+                />
+              </div>
+              <p className="mt-3 font-semibold text-center text-black tracking-wide">{item.name}</p>
+            </div>
+          ))}
         </div>
-
-        <div className="flex flex-col text-[12px] justify-center items-center">
-          <img className="h-32 w-32" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/backpacks_1.jpg" alt="" />
-          <p className="mt-4 font-semibold text-center">Prada Re-Nylon </p>
-        </div>
-        </div>
-
-                </div>
-
-    {/* Big Video */}
-
-    <video className="absolute" autoPlay
-      muted
-      loop
-      playsInline src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/explore/hero/loop_DT.mp4#t=0.001" controls></video>
-
-{/* White-Part */}
-    <div className="bg-white h-50 flex flex-col justify-center items-center gap-3">
-      <p className="font-bold text-[22px] text-black">Prada Explore</p>
-        <p className="text-gray-600 text-center text-[14px] ">Prada stands out for its continuous reinvention: a constant dialogue between archive and contemporaneity, where <br /> innovation and curiosity guide every creation. The Prada Explore bag collection reflects this dynamic vision, combining <br /> sophisticated aesthetics with a functional spirit.</p>
       </div>
 
-{/* Array of Bags */}
-  <div className="flex justify-between h-130 bg-white gap-0.5 text-black font-bold">
-          <div className="flex flex-col text-[15px]">
-        <img src="https://www.prada.com/content/dam/pradabkg_products/2/2VH/2VH204/2HE8F0002/2VH204_2HE8_F0002_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />
-        <p className="pl-4 pt-2">Prada Explore leather shoulder bag</p>
+      {/* Hero Video Section */}
+      <div className="w-full bg-neutral-900 aspect-video max-h-[75vh] overflow-hidden relative">
+        <video 
+          className="w-full h-full object-cover" 
+          autoPlay
+          muted
+          loop
+          playsInline 
+          src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/explore/hero/loop_DT.mp4#t=0.001" 
+          controls
+        />
       </div>
 
-      <div className="flex flex-col text-[15px]">
-        <img src="https://www.prada.com/content/dam/pradabkg_products/2/2VH/2VH206/2HE8F0002/2VH206_2HE8_F0002_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />
-        <p className="pl-4 pt-2">Prada Explore leather bag</p>
+      {/* Editorial Content Section */}
+      <div className="bg-white px-6 py-12 md:py-20 flex flex-col justify-center items-center gap-4 border-b border-gray-100">
+        <h2 className="font-bold text-[20px] md:text-[24px] text-black tracking-widest uppercase">Prada Explore</h2>
+        <p className="text-neutral-600 text-center text-[13px] md:text-[14px] leading-relaxed max-w-3xl font-light">
+          Prada stands out for its continuous reinvention: a constant dialogue between archive and contemporaneity, where innovation and curiosity guide every creation. The Prada Explore bag collection reflects this dynamic vision, combining sophisticated aesthetics with a functional spirit.
+        </p>
       </div>
-        
-       <div className="flex flex-col text-[15px]">
-         <img src="https://www.prada.com/content/dam/pradabkg_products/2/2VH/2VH204/2HE8F0201/2VH204_2HE8_F0201_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />
-          <p className="pl-4 pt-2">Prada Explore medium nappa leather <br />shoulder bag with flap</p>
-       </div>
 
-        <div className="flex flex-col text-[15px]">
-          <img src="https://www.prada.com/content/dam/pradabkg_products/2/2VH/2VH206/2HE8F0201/2VH206_2HE8_F0201_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />
-          <p className="pl-4 pt-2">Prada Explore leather bag</p>
+      {/* Array of Bags 1 */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 bg-white text-black font-bold border-b border-gray-200">
+        {[
+          { title: "Prada Explore leather shoulder bag", path: "2VH/2VH204/2HE8F0002/2VH204_2HE8_F0002_V_OOO_SLF.jpg" },
+          { title: "Prada Explore leather bag", path: "2VH/2VH206/2HE8F0002/2VH206_2HE8_F0002_V_OOO_SLF.jpg" },
+          { title: "Prada Explore medium nappa leather shoulder bag with flap", path: "2VH/2VH204/2HE8F0201/2VH204_2HE8_F0201_V_OOO_SLF.jpg" },
+          { title: "Prada Explore leather bag", path: "2VH/2VH206/2HE8F0201/2VH206_2HE8_F0201_V_OOO_SLF.jpg" }
+        ].map((prod, i) => (
+          <div key={i} className="flex flex-col text-[13px] md:text-[14px] p-3 md:p-6 border-b border-r border-neutral-100 last:border-r-0 lg:border-b-0 group cursor-pointer">
+            <div className="overflow-hidden bg-neutral-50 mb-4">
+              <img className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-500" src={`https://www.prada.com/content/dam/pradabkg_products/2/${prod.path}/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg`} alt={prod.title} />
+            </div>
+            <p className="pl-1 font-medium tracking-wide leading-snug">{prod.title}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* FIRST-PAIR Split Row */}
+      <div className="flex flex-col md:flex-row justify-center items-stretch w-full bg-white border-b border-gray-200">
+        <div className="w-full md:w-1/2 bg-neutral-50 flex flex-col justify-center items-center p-8 py-16 md:p-12 lg:p-24 text-center">
+          <h3 className="text-black text-[18px] md:text-[20px] font-semibold tracking-widest uppercase">Utility Refined</h3>
+          <p className="text-neutral-600 text-[13px] md:text-[14px] leading-relaxed pt-4 max-w-md font-light">
+            Prada Explore men’s bags merge form and function through an essential yet distinctive design. Versatile models conceived for a style in motion, balancing elegance and experimentation. Designed to accompany every journey, the Explore line blends an urban soul with an outdoor attitude.
+          </p>
         </div>
+        <div className="w-full md:w-1/2 aspect-square md:aspect-auto">
+          <img className="w-full h-full object-cover" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/explore/card_1/card_DT.jpg" alt="Utility Refined Showcase" />
         </div>
-
-  {/* FIRST-PAIR */}
-      <div className="flex justify-center">
-        <div className="h-150 w-160 bg-gray-200 flex flex-col justify-center items-center">
-          <p className="text-black text-center text-[18px] font-semibold">Utility Refined</p>
-          <p className="text-gray-600 text-center text-[14px] pt-2">Prada Explore men’s bags merge form and <br /> function through an essential yet distinctive <br /> design. Versatile models conceived for a style <br /> in motion, balancing elegance and <br />experimentation. Designed to accompany <br /> every journey, the Explore line blends an urban <br /> soul with an outdoor attitude.</p>
-      </div>
-
-      <img className="h-150 w-160" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/explore/card_1/card_DT.jpg" alt="" />
-      </div>
+            </div>
   
-  {/* Array of Bags-2 */}
-  <div className="flex justify-between h-130 text-black bg-white gap-0.5">
-          <div className="flex flex-col text-[15px] font-semibold">
-        <img src="https://www.prada.com/content/dam/pradabkg_products/2/2VZ/2VZ118/2HE8F0201/2VZ118_2HE8_F0201_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />
-        <p className="pl-4 pt-2">Prada Explore leather backpack</p>
+      {/* Array of Bags-2 */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 bg-white text-black font-semibold border-b border-gray-200">
+        {[
+          { title: "Prada Explore leather backpack", path: "2VZ/2VZ118/2HE8F0201/2VZ118_2HE8_F0201_V_OOO_SLF.jpg" },
+          { title: "Prada Explore leather backpack", path: "2VZ/2VZ118/2HE8F0002/2VZ118_2HE8_F0002_V_OOO_SLF.jpg" },
+          { title: "Prada Explore Re-Nylon and leather bag", path: "2VD/2VD082/2DW3F0002/2VD082_2DW3_F0002_V_OOO_SLF.jpg" },
+          { title: "Prada Explore Re-Nylon and leather bag", path: "2VH/2VH204/2DW3F0002/2VH204_2DW3_F0002_V_OOO_SLF.jpg" }
+        ].map((prod, i) => (
+          <div key={i} className="flex flex-col text-[13px] md:text-[14px] p-3 md:p-6 border-b border-r border-neutral-100 last:border-r-0 lg:border-b-0 group cursor-pointer">
+            <div className="overflow-hidden bg-neutral-50 mb-4">
+              <img className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-500" src={`https://www.prada.com/content/dam/pradabkg_products/2/${prod.path}/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg`} alt={prod.title} />
+            </div>
+            <p className="pl-1 font-medium tracking-wide leading-snug">{prod.title}</p>
+          </div>
+        ))}
       </div>
 
-      <div className="flex flex-col text-[15px] font-semibold">
-        <img src="https://www.prada.com/content/dam/pradabkg_products/2/2VZ/2VZ118/2HE8F0002/2VZ118_2HE8_F0002_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />
-        <p className="pl-4 pt-2">Prada Explore leather backpack</p>
+      {/* SECOND-PAIR Image Showcase Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full bg-white border-b border-gray-200">
+        <div className="w-full aspect-[4/3] md:aspect-auto border-b md:border-b-0 md:border-r border-neutral-100">
+          <img className="w-full h-full object-cover" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/explore/card_2/card_DT.jpg" alt="Campaign Context Aspect Left" />
+        </div>
+        <div className="w-full aspect-[4/3] md:aspect-auto">
+          <img className="w-full h-full object-cover" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/explore/card_3/card_3_DT.jpg" alt="Campaign Context Aspect Right" />
+        </div>
+            </div>
+
+      {/* Array of Bags-3 */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 bg-white text-black font-semibold border-b border-gray-200">
+        {[
+          { title: "Prada Explore medium nappa leather shoulder bag with flap", path: "2VH/2VH206/2DW3F0D57/2VH206_2DW3_F0D57_V_OOO_SLF.jpg" },
+          { title: "Prada Explore large Re-Nylon and leather bag", path: "2VZ/2VZ118/2DW3F0D57/2VZ118_2DW3_F0D57_V_OOO_SLF.jpg" },
+          { title: "Prada Explore medium Re-Nylon shoulder bag with flap", path: "2VZ/2VZ118/2DW3F0002/2VZ118_2DW3_F0002_V_OOO_SLF.jpg" },
+          { title: "Prada Explore large nappa leather bag", path: "2VZ/2VZ118/2DW3F0038/2VZ118_2DW3_F0038_V_OOO_SLF.jpg" }
+        ].map((prod, i) => (
+          <div key={i} className="flex flex-col text-[13px] md:text-[14px] p-3 md:p-6 border-b border-r border-neutral-100 last:border-r-0 lg:border-b-0 group cursor-pointer">
+            <div className="overflow-hidden bg-neutral-50 mb-4">
+              <img className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-500" src={`https://www.prada.com/content/dam/pradabkg_products/2/${prod.path}/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg`} alt={prod.title} />
+            </div>
+            <p className="pl-1 font-medium tracking-wide leading-snug">{prod.title}</p>
+          </div>
+        ))}
       </div>
+
+      {/* Breadcrumbs Navigation UI */}
+      <div className="bg-white py-10 flex justify-center items-center text-neutral-400 px-4 text-center text-[12px] md:text-[13px] tracking-widest uppercase">
+        <p>
         
-       <div className="flex flex-col text-[15px] font-semibold">
-         <img src="https://www.prada.com/content/dam/pradabkg_products/2/2VD/2VD082/2DW3F0002/2VD082_2DW3_F0002_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />
-          <p className="pl-4 pt-2">Prada Explore Re-Nylon and leather <br /> bag</p>
-       </div>
-
-        <div className="flex flex-col text-[15px] font-semibold">
-          <img src="https://www.prada.com/content/dam/pradabkg_products/2/2VH/2VH204/2DW3F0002/2VH204_2DW3_F0002_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />
-          <p className="pl-4 pt-2">Prada Explore Re-Nylon and leather <br /> bag</p>
-        </div>
-        </div>
-
-  {/* SECOND-PAIR */}
-      <div className="flex justify-center">
-      <img className="h-150 w-160" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/explore/card_2/card_DT.jpg" alt="" />
-
-      {/* <div className="h-150 w-160 bg-gray-200 flex flex-col justify-center items-center">
-          <p className="text-black text-center text-[15px] font-semibold">Functionality and Modernism</p>
-          <p className="text-gray-600 text-center text-[10px] pt-2">A unique perspective — bold yet refined, <br /> experimental yet timeless.</p>
-      </div> */}
-
-      <img className="h-150 w-160" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/explore/card_3/card_3_DT.jpg" alt="" />
+          <span className="hover:text-black hover:underline cursor-pointer transition-colors">Prada</span>          
+          <span className="mx-2">/</span>
+          <span className="hover:text-black hover:underline cursor-pointer transition-colors">Womens</span>
+          <span className="mx-2">/</span>
+          <span className="hover:text-black hover:underline cursor-pointer transition-colors">Essentials</span>
+          <span className="mx-2">/</span>
+          <span className="text-black font-semibold">Prada explore</span>
+        </p>
       </div>
-
-  {/* Array of Bags-3 */}
-  <div className="flex justify-between h-120 bg-white gap-0.5 text-black">
-          <div className="flex flex-col text-[15px] font-semibold">
-        <img src="https://www.prada.com/content/dam/pradabkg_products/2/2VH/2VH206/2DW3F0D57/2VH206_2DW3_F0D57_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />
-        <p className="pl-4 pt-2">Prada Explore medium nappa leather <br /> shoulder bag with flap</p>
-      </div>
-
-      <div className="flex flex-col text-[15px] font-semibold">
-        <img src="https://www.prada.com/content/dam/pradabkg_products/2/2VZ/2VZ118/2DW3F0D57/2VZ118_2DW3_F0D57_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />
-        <p className="pl-4 pt-2">Prada Explore large Re-Nylon and leather <br /> bag</p>
-      </div>
-        
-       <div className="flex flex-col text-[15px] font-semibold">
-         <img src="https://www.prada.com/content/dam/pradabkg_products/2/2VZ/2VZ118/2DW3F0002/2VZ118_2DW3_F0002_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />
-          <p className="pl-4 pt-2">Prada Explore medium Re-Nylon shoulder bag with flap</p>
-       </div>
-
-        <div className="flex flex-col text-[15px] font-semibold">
-          <img src="https://www.prada.com/content/dam/pradabkg_products/2/2VZ/2VZ118/2DW3F0038/2VZ118_2DW3_F0038_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />
-          <p className="pl-4 pt-2">Prada Explore large nappa leather bag</p>
-        </div>
-        </div>
-
-   {/* SHOW-MORE
-
-      <div className="flex flex-col justify-between items-center h-85 bg-white py-10 text-black">
-        <h1 className="text-[13px] font-semibold">SHOW MORE <hr /> </h1>
-        <p className="text-center text-[14px]">The <span className="font-bold">Prada Explore Bag</span> captures a utilitarian essence, blending bold <br /> refinement with experimental yet timeless design. Its softly padded yet <br /> streamlined structure offers comfort and style, while practical 3D pockets and <br /> a spacious internal compartment provide functional versatility for your wallet <br /> and modern needs.</p>
-      </div> */}
-      <hr className="border-gray-300" />
-
-      {/* Prada / Womens / Essentials / Prada explore */}
-
-      <div className="bg-white h-20 flex justify-center items-center text-black">
-        <p className="text-[14px] font-semibold"><span className="hover hover:underline cursor-pointer">Prada</span> / <span className="hover hover:underline cursor-pointer"> Womens</span> / <span className="hover hover:underline cursor-pointer">Essentials</span> / Prada explore</p>
-      </div>
-      <hr className="border-gray-300" />
-
-      <Footer  />
-
-        </div>
-)}
+      
+      <hr className="border-gray-200" />
+      <Footer />
+    </div>
+  );
+}

@@ -1,19 +1,21 @@
 export default function Footer() {
   return (
-    <footer className="bg-white text-black border-t border-gray-200 mt-20">
+    <footer className="bg-white text-black border-t border-gray-200 mt-12 md:mt-20">
 
       {/* Top Section */}
-      <div className="grid grid-cols-5 gap-16 px-10 py-14">
+      {/* Changed from hardcoded grid-cols-5 to a responsive layout that scales down gracefully */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-16 px-6 sm:px-10 py-10 py-14">
 
         {/* Newsletter */}
-        <div className="w-80">
+        {/* Changed w-80 to max-w-sm lg:w-80 so it stretches naturally on mobile but caps on desktop */}
+        <div className="w-full max-w-sm lg:w-80">
           <input
             type="email"
             placeholder="Insert your e-mail address*"
             className="w-full border-b border-black pb-3 outline-none text-[12px] placeholder:text-black"
           />
 
-          <div className="flex items-center gap-4 mt-8">
+          <div className="flex flex-wrap items-center gap-4 mt-8">
             <img className="w-4 h-4 cursor-pointer" src="https://cdn-icons-png.flaticon.com/128/3128/3128208.png" alt="" />
             <img className="w-4 h-4 cursor-pointer" src="https://cdn-icons-png.flaticon.com/128/5968/5968958.png" alt="" />
             <img className="w-4 h-4 cursor-pointer" src="https://cdn-icons-png.flaticon.com/128/87/87390.png" alt="" />
@@ -30,7 +32,7 @@ export default function Footer() {
             Contact Us
           </h3>
 
-          <ul className="space-y-4 mt-8 text-[12px]">
+          <ul className="space-y-4 mt-6 md:mt-8 text-[12px]">
             <li className="cursor-pointer hover:underline">
               Call us 1-877-997-7232
             </li>
@@ -52,7 +54,7 @@ export default function Footer() {
             Services
           </h3>
 
-          <ul className="space-y-4 mt-8 text-[12px]">
+          <ul className="space-y-4 mt-6 md:mt-8 text-[12px]">
             <li className="cursor-pointer hover:underline">
               Online and in-store services
             </li>
@@ -74,7 +76,7 @@ export default function Footer() {
             Company
           </h3>
 
-          <ul className="space-y-4 mt-8 text-[12px]">
+          <ul className="space-y-4 mt-6 md:mt-8 text-[12px]">
             <li className="cursor-pointer hover:underline">
               Fondazione Prada
             </li>
@@ -99,7 +101,7 @@ export default function Footer() {
             Legal Terms and Conditions
           </h3>
 
-          <ul className="space-y-4 mt-8 text-[12px]">
+          <ul className="space-y-4 mt-6 md:mt-8 text-[12px]">
             <li className="cursor-pointer hover:underline">
               Legal Notice
             </li>
@@ -124,13 +126,15 @@ export default function Footer() {
       <div className="border-t border-gray-200"></div>
 
       {/* Bottom Section */}
-      <div className="flex justify-between items-center px-10 py-6">
+      {/* Changed flex-row to flex-col-reverse on mobile so copyright sits neatly below choices */}
+      <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-6 md:gap-0 px-6 sm:px-10 py-6">
 
-        <p className="text-[11px] text-gray-600">
+        <p className="text-[11px] text-gray-600 text-center md:text-left">
           © PRADA 2007–2026 | VAT no. IT10115350158
         </p>
 
-        <div className="flex items-center gap-14 text-[11px] font-medium">
+        {/* Changed links container to stack vertically on small devices or wrap evenly */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-14 text-[11px] font-medium text-center">
 
           <div className="flex items-center gap-2 cursor-pointer hover:underline">
             <img
