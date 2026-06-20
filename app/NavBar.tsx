@@ -1,17 +1,98 @@
 "use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image"; 
+import { ShoppingBag } from "lucide-react";
 // Imported useRouter and usePathname hooks from Next.js navigation systems
 import { useRouter, usePathname } from "next/navigation";
 
-export default function NavBar() {
+
+  export default function NavBar() {
+  // Define the helper function at the very top of the component
+  const formatNaira = (amount: number): string => {
+    return new Intl.NumberFormat('en-NG', {
+      style: 'currency',
+      currency: 'NGN',
+    }).format(amount);
+  };
+
   const router = useRouter();
-  const pathname = usePathname(); // Tracks current route layout localization
+  const pathname = usePathname();
   
+  // Now the rest of your state declarations...
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // ... and so on
+ 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+
+  const [isBagOpen, setIsBagOpen] = useState(false);
+
+const [cartItems, setCartItems] = useState([
+  {
+    id: 1,
+    name: "Prada Summer Bag",
+    color: "White Leather",
+    price: 3200,
+    quantity: 1,
+    image:
+      "https://www.prada.com/content/dam/pradaspa/home_page/2026/03/essentials_bags/slider/summer_bags_3.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg",
+  },
+  {
+    id: 2,
+    name: "Prada Route",
+    color: "Black Leather",
+    price: 2800,
+    quantity: 1,
+    image:
+      "https://www.prada.com/content/dam/pradaspa/home_page/2026/05/bags/route_2.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg",
+  },
+  {
+    id: 3,
+    name: "Galleria Bag",
+    color: "Saffiano Leather",
+    price: 4100,
+    quantity: 1,
+    image:
+      "https://www.prada.com/content/dam/pradaspa/home_page/2026/04/galleria/bags/galleria.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg",
+  },
+]);
+
+  const increaseQuantity = (id: number) => {
+  setCartItems((items) =>
+    items.map((item) =>
+      item.id === id
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    )
+  );
+};
+
+const decreaseQuantity = (id: number) => {
+  setCartItems((items) =>
+    items
+      .map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              quantity: Math.max(1, item.quantity - 1),
+            }
+          : item
+      )
+  );
+};
+
+const removeItem = (id: number) => {
+  setCartItems((items) =>
+    items.filter((item) => item.id !== id)
+  );
+};
+
+const subtotal = cartItems.reduce(
+  (total, item) => total + item.price * item.quantity,
+  0
+);
 
   // Conditional logic to hide back navigation layout on the root/home page screen matrix
   const isHomePage = pathname === "/";
@@ -116,6 +197,25 @@ export default function NavBar() {
                 DISCOVER
               </Link>
             </div>
+
+
+            {/* Cart Icon */}
+            <button
+  onClick={() => setIsBagOpen(true)}
+  className="relative flex items-center justify-center text-black hover:text-neutral-500 transition"
+  aria-label="Shopping Bag"
+>
+  <ShoppingBag
+    size={20}
+    strokeWidth={1.5}
+  />
+
+  <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-black text-white text-[9px] flex items-center justify-center font-medium">
+    {cartItems.length}
+  </span>
+</button>
+
+            
             
             {/* Contact Support Trigger Button */}
             <button 
@@ -240,6 +340,152 @@ export default function NavBar() {
           </div>
         </aside>
       </div>
+
+     
+
+
+{/* Shopping Bag Drawer */}
+<div
+  className={`fixed inset-0 z-[999] transition-all duration-300 ${
+    isBagOpen
+      ? "opacity-100 visible pointer-events-auto"
+      : "opacity-0 invisible pointer-events-none"
+  }`}
+>
+  {/* Overlay */}
+  <div
+    onClick={() => setIsBagOpen(false)}
+    className="absolute inset-0 bg-black/30 backdrop-blur-sm"
+  />
+
+{/* Shopping Bag Drawer */}
+<div
+  className={`fixed inset-0 z-[999] transition-all duration-300 ${
+    isBagOpen
+      ? "opacity-100 visible pointer-events-auto"
+      : "opacity-0 invisible pointer-events-none"
+  }`}
+>
+  {/* Overlay */}
+  <div
+    onClick={() => setIsBagOpen(false)}
+    className="absolute inset-0 bg-black/30 backdrop-blur-sm"
+  />
+
+  {/* Drawer */}
+  <aside
+    className={`absolute right-0 top-0 h-full w-full sm:max-w-md bg-white flex flex-col transition-transform duration-500 ${
+      isBagOpen ? "translate-x-0" : "translate-x-full"
+    }`}
+  >
+    {/* Header */}
+    <div className="flex items-center justify-between p-6 border-b">
+      <h2 className="text-xs uppercase tracking-[0.3em] font-semibold">
+        Shopping Bag
+      </h2>
+
+      <button
+        onClick={() => setIsBagOpen(false)}
+        className="text-sm hover:text-neutral-500"
+      >
+        ✕
+      </button>
+    </div>
+
+    {/* Products */}
+    <div className="flex-1 overflow-y-auto px-6">
+      {cartItems.length === 0 ? (
+        <div className="flex h-full items-center justify-center text-neutral-500 text-sm">
+          Your bag is empty.
+        </div>
+      ) : (
+        cartItems.map((item) => (
+          <div
+            key={item.id}
+            className="flex gap-4 py-6 border-b border-neutral-200"
+          >
+            <Image
+              src={item.image}
+              width={90}
+              height={110}
+              alt={item.name}
+              className="rounded object-cover"
+            />
+
+            <div className="flex-1">
+              <h3 className="text-sm font-medium">
+                {item.name}
+              </h3>
+
+              <p className="text-xs text-neutral-500 mt-1">
+                {item.color}
+              </p>
+
+              {/* Price with Naira formatting */}
+              <p className="mt-2 text-sm font-medium">
+                {formatNaira(item.price)}
+              </p>
+
+              <div className="flex items-center gap-3 mt-4">
+                <button
+                  onClick={() => decreaseQuantity(item.id)}
+                  className="w-8 h-8 border flex items-center justify-center"
+                >
+                  −
+                </button>
+
+                <span>{item.quantity}</span>
+
+                <button
+                  onClick={() => increaseQuantity(item.id)}
+                  className="w-8 h-8 border flex items-center justify-center"
+                >
+                  +
+                </button>
+              </div>
+
+              <button
+                onClick={() => removeItem(item.id)}
+                className="mt-4 text-[10px] uppercase tracking-[0.2em] text-neutral-500 hover:text-black"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        ))
+      )}
+    </div>
+
+    {/* Footer */}
+    <div className="border-t p-6">
+      <div className="flex justify-between mb-5">
+        <span className="uppercase tracking-[0.25em] text-[10px]">
+          Subtotal
+        </span>
+
+        {/* Subtotal with Naira formatting */}
+        <span className="font-medium">
+          {formatNaira(subtotal)}
+        </span>
+      </div>
+
+      <button
+        onClick={() => setIsBagOpen(false)}
+        className="w-full border border-black py-3 uppercase text-[10px] tracking-[0.25em] hover:bg-neutral-100 transition"
+      >
+        Continue Shopping
+      </button>
+
+      <button
+        onClick={() => router.push("/checkout")}
+        className="w-full mt-3 bg-black text-white py-3 uppercase text-[10px] tracking-[0.25em]"
+      >
+        Checkout
+      </button>
+    </div>
+  </aside>
+</div>
+</div>
     </>
   );
 }

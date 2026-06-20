@@ -71,12 +71,16 @@ export default function For_Him() {
           { title: "Prada Explore medium nappa leather shoulder bag with flap", path: "2VH/2VH204/2HE8F0201/2VH204_2HE8_F0201_V_OOO_SLF.jpg" },
           { title: "Prada Explore leather bag", path: "2VH/2VH206/2HE8F0201/2VH206_2HE8_F0201_V_OOO_SLF.jpg" }
         ].map((prod, i) => (
+          <Link
+          href="/products/10"
+          >
           <div key={i} className="flex flex-col text-[13px] md:text-[14px] p-3 md:p-6 border-b border-r border-neutral-100 last:border-r-0 lg:border-b-0 group cursor-pointer">
             <div className="overflow-hidden bg-neutral-50 mb-4">
               <img className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-500" src={`https://www.prada.com/content/dam/pradabkg_products/2/${prod.path}/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg`} alt={prod.title} />
             </div>
             <p className="pl-1 font-medium tracking-wide leading-snug">{prod.title}</p>
           </div>
+          </Link>
         ))}
       </div>
 
@@ -101,12 +105,16 @@ export default function For_Him() {
           { title: "Prada Explore Re-Nylon and leather bag", path: "2VD/2VD082/2DW3F0002/2VD082_2DW3_F0002_V_OOO_SLF.jpg" },
           { title: "Prada Explore Re-Nylon and leather bag", path: "2VH/2VH204/2DW3F0002/2VH204_2DW3_F0002_V_OOO_SLF.jpg" }
         ].map((prod, i) => (
+          <Link
+          href="/products/10"
+          >
           <div key={i} className="flex flex-col text-[13px] md:text-[14px] p-3 md:p-6 border-b border-r border-neutral-100 last:border-r-0 lg:border-b-0 group cursor-pointer">
             <div className="overflow-hidden bg-neutral-50 mb-4">
               <img className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-500" src={`https://www.prada.com/content/dam/pradabkg_products/2/${prod.path}/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg`} alt={prod.title} />
             </div>
             <p className="pl-1 font-medium tracking-wide leading-snug">{prod.title}</p>
           </div>
+          </Link>
         ))}
       </div>
 
@@ -128,12 +136,16 @@ export default function For_Him() {
           { title: "Prada Explore medium Re-Nylon shoulder bag with flap", path: "2VZ/2VZ118/2DW3F0002/2VZ118_2DW3_F0002_V_OOO_SLF.jpg" },
           { title: "Prada Explore large nappa leather bag", path: "2VZ/2VZ118/2DW3F0038/2VZ118_2DW3_F0038_V_OOO_SLF.jpg" }
         ].map((prod, i) => (
+          <Link
+          href="/products/10"
+          >
           <div key={i} className="flex flex-col text-[13px] md:text-[14px] p-3 md:p-6 border-b border-r border-neutral-100 last:border-r-0 lg:border-b-0 group cursor-pointer">
             <div className="overflow-hidden bg-neutral-50 mb-4">
               <img className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-500" src={`https://www.prada.com/content/dam/pradabkg_products/2/${prod.path}/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg`} alt={prod.title} />
             </div>
             <p className="pl-1 font-medium tracking-wide leading-snug">{prod.title}</p>
           </div>
+          </Link>
         ))}
       </div>
 
@@ -141,7 +153,12 @@ export default function For_Him() {
       <div className="bg-white py-10 flex justify-center items-center text-neutral-400 px-4 text-center text-[12px] md:text-[13px] tracking-widest uppercase">
         <p>
         
-          <span className="hover:text-black hover:underline cursor-pointer transition-colors">Prada</span>          
+        <Link
+        href="/"
+        >
+        <span className="hover:text-black hover:underline cursor-pointer transition-colors">Prada</span>    
+        </Link>
+                
           <span className="mx-2">/</span>
           <span className="hover:text-black hover:underline cursor-pointer transition-colors">Womens</span>
           <span className="mx-2">/</span>

@@ -93,7 +93,7 @@ export default function SignupPage() {
                 <input
                   type="email"
                   placeholder="you@example.com"
-                  className="w-full border-b border-gray-300 bg-transparent py-3 outline-none focus:border-black transition"
+                  className="w-full border-b border-gray-300 bg-transparent py-3 px-2 outline-none focus:border-black transition"
                 />
               </div>
 
@@ -105,7 +105,7 @@ export default function SignupPage() {
                 <input
                   type="password"
                   placeholder="••••••••"
-                  className="w-full border-b border-gray-300 bg-transparent py-3 outline-none focus:border-black transition"
+                  className="w-full border-b border-gray-300 bg-transparent py-3 px-2 outline-none focus:border-black transition"
                 />
               </div>
 

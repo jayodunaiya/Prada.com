@@ -93,7 +93,7 @@ export default function Home() {
         
       {/* ================= SPLIT RUNWAY EDITORIAL ROW 1 ================= */}
       <div className="bg-neutral-50 py-16 px-4 lg:px-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 border-t border-b border-neutral-100">
-        <Link href="/category/womens-sunglasses" className="w-full lg:w-1/2 group">
+        <Link href="/discover" className="w-full lg:w-1/2 group">
           <div className="flex flex-col gap-4 text-center items-center">
             <div className="w-full max-w-[420px] aspect-square overflow-hidden bg-white mb-2 shadow-xs">
               <img className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-700 ease-out" src="https://www.prada.com/content/dam/pradaspa/home_page/2026/06/may_issue/sunglasses_w/card_small_DT.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1680.1680.jpg" alt="Sunglasses Collection" />
@@ -259,7 +259,7 @@ export default function Home() {
           <video className="w-full h-full object-cover opacity-95" autoPlay muted loop playsInline src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/sunglasses/m/loop_DT.mp4#t=0.001" />
         </div>
 
-        <Link href="/category/mens-sunglasses" className="w-full lg:w-1/2 flex flex-col gap-4 text-center items-center order-1 lg:order-2 group cursor-pointer">
+        <Link href="/Men_Sunglasses" className="w-full lg:w-1/2 flex flex-col gap-4 text-center items-center order-1 lg:order-2 group cursor-pointer">
           <div className="w-full max-w-[420px] aspect-square overflow-hidden bg-white mb-2 shadow-xs">
             <img className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-700 ease-out" src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/sunglasses/m/editorial_DT.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1680.1680.jpg" alt="Men Sunglasses Collection" />
           </div>

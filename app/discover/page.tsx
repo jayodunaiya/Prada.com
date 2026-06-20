@@ -1,5 +1,6 @@
 import NavBar from "../NavBar";
 import Footer from "../Footer/Footer";
+import Link from "next/link";
 
 export default function Women_Sunglasses() {
   return (
@@ -75,10 +76,14 @@ export default function Women_Sunglasses() {
           { title: "Prada Explore medium nappa leather shoulder bag with flap", img: "SPRD50/E1BCFE50Q/SPRD50_E1BC_FE50Q_C_057_SLF.jpg" },
           { title: "Prada Explore leather bag", img: "SPRD50/EZVNFE70B/SPRD50_EZVN_FE70B_C_057_SLF.jpg" }
         ].map((prod, i) => (
+          <Link
+          href="/products/12"
+          >
           <div key={i} className="flex flex-col text-[11px] md:text-[12px] p-2 md:p-4 border-b lg:border-b-0 border-r border-gray-100 last:border-r-0">
             <img className="w-full h-auto object-cover" src={`https://www.prada.com/content/dam/pradabkg_products/S/SPR/${prod.img}/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg`} alt={prod.title} />
             <p className="mt-2 font-medium">{prod.title}</p>
           </div>
+          </Link>
         ))}
       </div>
 
@@ -92,10 +97,14 @@ export default function Women_Sunglasses() {
             { title: "Prada Shadowplay sunglasses", img: "SPRD08/E20DFE70X/SPRD08_E20D_FE70X_C_U053_SLF.jpg" },
             { title: "Prada Shadowplay sunglasses", img: "SPRD08/E16KFE10X/SPRD08_E16K_FE10X_C_U053_SLF.jpg" }
           ].map((prod, i) => (
+            <Link
+            href="/products/12"
+            >
             <div key={i} className="border-r border-b border-gray-200 bg-white flex flex-col justify-between p-2">
               <img className="w-full aspect-square object-cover" src={`https://www.prada.com/content/dam/pradabkg_products/S/SPR/${prod.img}/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg`} alt={prod.title} />
               <p className="p-3 text-[11px] md:text-xs text-black font-medium">{prod.title}</p>
             </div>
+            </Link>
           ))}
         </div>
 
@@ -122,10 +131,14 @@ export default function Women_Sunglasses() {
             "SPRB15/E28IFE50W/SPRB15_E28I_FE50W_C_051_SLF.jpg",
             "SPRB15/F29CFE05Z/SPRB15_F29C_FE05Z_C_051_SLF.jpg"
           ].map((img, i) => (
+            <Link
+            href="/products/20"
+            >
             <div key={i} className="flex flex-col text-[11px] md:text-[12px] p-2 md:p-4 border-b border-r border-gray-100">
               <img className="w-full h-auto object-cover" src={`https://www.prada.com/content/dam/pradabkg_products/S/SPR/${img}/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg`} alt="" />
               <p className="mt-2 font-medium">Prada Sunglasses with the iconic metal plaque</p>
             </div>
+            </Link>
           ))}
         </div>
 
@@ -167,10 +180,14 @@ export default function Women_Sunglasses() {
             "SPRD04/E16KFE08Z/SPRD04_E16K_FE08Z_C_U053_SLF.jpg",
             "SPRD04/E27IFE80W/SPRD04_E27I_FE80W_C_U053_SLF.jpg",
           ].map((img, i) => (
+            <Link
+            href="/products/20"
+            >
             <div key={i} className="flex flex-col text-[11px] md:text-[12px] p-2 md:p-4 border-b border-r border-gray-100">
               <img className="w-full h-auto object-cover" src={`https://www.prada.com/content/dam/pradabkg_products/S/SPR/${img}/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg`} alt="" />
               <p className="mt-2 font-medium">Prada Luxury Collection Eyewear</p>
             </div>
+            </Link>
           ))}
           {/* Final distinct product inside block definition */}
           <div className="flex flex-col text-[11px] md:text-[12px] p-2 md:p-4 border-b border-r border-gray-100">

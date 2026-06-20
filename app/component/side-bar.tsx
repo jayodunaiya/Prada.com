@@ -3,105 +3,303 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutGrid, ShoppingBag, FileText, LogOut, Menu, X } from "lucide-react";
+import {
+  LayoutGrid,
+  ShoppingBag,
+  FileText,
+  LogOut,
+  Menu,
+  X,
+} from "lucide-react";
 import Image from "next/image";
 
 const navItems = [
-  { href: "/Admin/dashboard", label: "Dashboard", icon: LayoutGrid },
-  { href: "/Admin/products", label: "Products", icon: ShoppingBag },
-  { href: "/Admin/orders", label: "Orders", icon: FileText, badge: 12 },
+  {
+    href: "/Admin/dashboard",
+    label: "Dashboard",
+    icon: LayoutGrid,
+    color: "text-sky-300",
+    bg: "bg-sky-400/10",
+  },
+  {
+    href: "/Admin/products",
+    label: "Products",
+    icon: ShoppingBag,
+    color: "text-emerald-300",
+    bg: "bg-emerald-400/10",
+  },
+  {
+    href: "/Admin/orders",
+    label: "Orders",
+    icon: FileText,
+    badge: 12,
+    color: "text-amber-300",
+    bg: "bg-amber-400/10",
+  },
 ];
 
 export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
-  function handleLogout() {
-    router.push("/"); // Changed to home/landing page
-  }
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       {/* Mobile Header */}
-      <div className="md:hidden flex items-center justify-between w-full bg-white h-16 px-6 border-b border-black sticky top-0 z-[100]">
-        <div className="relative w-24 h-6">
-          <Image src="/download.png" alt="Logo" fill className="object-contain" priority />
+      <header className="md:hidden sticky top-0 z-[100] h-16 bg-[#0A0A0A]/95 backdrop-blur-xl border-b border-white/5 flex items-center justify-between px-6">
+        <div className="relative w-28 h-7">
+          <Image
+            src="/download.png"
+            alt="Logo"
+            fill
+            priority
+            className="object-contain invert"
+          />
         </div>
-        <button onClick={() => setIsOpen(!isOpen)} className="text-black">
+
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-white hover:opacity-70 transition"
+        >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
-      </div>
+      </header>
 
-      {/* Backdrop */}
+      {/* Overlay */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 bg-white/80 backdrop-blur-sm z-[99]" onClick={() => setIsOpen(false)} />
+        <div
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+        />
       )}
 
-      {/* Sidebar Shell */}
-      <div className={`
-        fixed inset-y-0 left-0 z-[99] md:z-10 w-64 bg-white border-r border-black flex flex-col h-screen
-        transition-transform duration-300 ease-in-out md:sticky md:top-0 md:translate-x-0
-        ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
-      `}>
-        {/* Brand Header */}
-        <div className="hidden md:flex px-8 py-10 border-b border-black">
-          <div className="relative w-32 h-10">
-            <Image src="/download.png" alt="Logo" fill className="object-contain" priority />
+      {/* Sidebar */}
+      <aside
+        className={`
+          fixed inset-y-0 left-0
+          w-72
+          bg-[#0A0A0A]
+          border-r border-white/5
+          flex flex-col
+          z-50
+
+          transition-all
+          duration-500
+          ease-[cubic-bezier(.22,1,.36,1)]
+
+          ${
+            isOpen
+              ? "translate-x-0"
+              : "-translate-x-full md:translate-x-0"
+          }
+
+          md:sticky md:top-0
+        `}
+      >
+        {/* Logo */}
+        <div className="px-8 pt-10 pb-8 border-b border-white/5">
+          <div className="relative w-36 h-10">
+            <Image
+              src="/download.png"
+              alt="Logo"
+              fill
+              priority
+              className="object-contain invert opacity-90"
+            />
           </div>
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-6 py-8 flex flex-col gap-1">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-bold px-2 py-4">
-            Management
+        <div className="flex-1 px-5 py-8">
+          <p className="text-[10px] uppercase tracking-[0.35em] text-neutral-600 mb-6 px-2">
+            Navigation
           </p>
-          {navItems.map(({ href, label, icon: Icon, badge }) => {
-            const isActive = pathname === href;
-            return (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setIsOpen(false)}
-                className={`flex items-center gap-4 px-2 py-3 text-[11px] uppercase tracking-[0.2em] transition-all duration-300
-                  ${isActive 
-                    ? "text-black font-bold" 
-                    : "text-gray-400 hover:text-black"
-                  }`}
-              >
-                <Icon size={16} strokeWidth={isActive ? 2.5 : 1.5} />
-                {label}
-                {badge && (
-                  <span className="ml-auto text-[9px] font-bold">
-                    {badge}
-                  </span>
-                )}
-              </Link>
-            );
-          })}
-        </nav>
 
-        {/* Footer */}
-        <div className="p-6 border-t border-black bg-white">
-          <div className="mb-6">
-            <p className="text-[10px] font-bold uppercase tracking-widest">Admin User</p>
-            <p className="text-[9px] uppercase tracking-widest text-gray-400">admin@fooddash.com</p>
-          </div>
+          <nav className="space-y-3">
+            {navItems.map(
+              ({
+                href,
+                label,
+                icon: Icon,
+                badge,
+                color,
+                bg,
+              }) => {
+                const active =
+                  pathname === href ||
+                  pathname.startsWith(`${href}/`);
 
-          <Link
-          href="/auth/login"
-          >
-          <button
-            onClick={handleLogout}
-            className="w-full py-3 flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] border border-black hover:bg-black hover:text-white transition-colors duration-300 justify-center"
-          >
-            <LogOut size={12} />
-            Log out
-          </button>
-          </Link>
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    onClick={() => setIsOpen(false)}
+                    className={`
+                      relative
+                      flex
+                      items-center
+                      gap-4
+                      px-4
+                      py-3.5
+                      rounded-2xl
+                      border
+                      transition-all
+                      duration-300
+                      group
 
+                      ${
+                        active
+                          ? "bg-gradient-to-r from-white/[0.08] to-white/[0.03] border-white/10"
+                          : "border-transparent hover:bg-white/[0.03] hover:border-white/5 hover:translate-x-1"
+                      }
+                    `}
+                  >
+                    {/* Active Indicator */}
+                    <div
+                      className={`
+                        absolute
+                        left-0
+                        top-3
+                        bottom-3
+                        w-[3px]
+                        rounded-full
+                        transition-all
+
+                        ${
+                          active
+                            ? "bg-white"
+                            : "bg-transparent"
+                        }
+                      `}
+                    />
+
+                    {/* Icon */}
+                    <div
+                      className={`
+                        w-11
+                        h-11
+                        rounded-xl
+                        flex
+                        items-center
+                        justify-center
+                        transition-all
+
+                        ${
+                          active
+                            ? `${bg}`
+                            : "bg-white/[0.03] group-hover:bg-white/[0.05]"
+                        }
+                      `}
+                    >
+                      <Icon
+                        size={18}
+                        strokeWidth={1.75}
+                        className={
+                          active
+                            ? color
+                            : "text-neutral-500 group-hover:text-white"
+                        }
+                      />
+                    </div>
+
+                    {/* Label */}
+                    <span
+                      className={`
+                        flex-1
+                        text-sm
+                        tracking-wide
+                        font-light
+
+                        ${
+                          active
+                            ? "text-white"
+                            : "text-neutral-400 group-hover:text-white"
+                        }
+                      `}
+                    >
+                      {label}
+                    </span>
+
+                    {/* Badge */}
+                    {badge && (
+                      <span
+                        className={`
+                          min-w-7
+                          h-7
+                          rounded-full
+                          flex
+                          items-center
+                          justify-center
+                          text-[11px]
+                          font-medium
+
+                          ${
+                            active
+                              ? "bg-white text-black"
+                              : "bg-white/5 text-neutral-300"
+                          }
+                        `}
+                      >
+                        {badge}
+                      </span>
+                    )}
+                  </Link>
+                );
+              }
+            )}
+          </nav>
         </div>
-      </div>
+
+        {/* Admin Card */}
+        <div className="px-6 py-5 border-t border-white/5">
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-white font-semibold">
+              A
+            </div>
+
+            <div>
+              <h3 className="text-white text-sm font-medium">
+                Administrator
+              </h3>
+
+              <p className="text-xs text-neutral-500">
+                Luxury Store Manager
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Logout */}
+        <div className="p-6">
+          <button
+            onClick={() => router.push("/auth/login")}
+            className="
+              w-full
+              rounded-2xl
+              border
+              border-white/10
+              py-3.5
+              flex
+              items-center
+              justify-center
+              gap-3
+              text-sm
+              font-light
+              tracking-wide
+              text-neutral-300
+              hover:bg-red-500/10
+              hover:border-red-500/20
+              hover:text-red-300
+              transition-all
+              duration-300
+            "
+          >
+            <LogOut size={17} strokeWidth={1.6} />
+            Log Out
+          </button>
+        </div>
+      </aside>
     </>
   );
 }
