@@ -1,81 +1,31 @@
+"use client";
+
+import React from "react";
 import Sidebar from "@/app/component/side-bar";
 import { Bell, Settings, TrendingUp, TrendingDown } from "lucide-react";
 
+// --- Data Constants ---
 const stats = [
-  {
-    label: "Revenue",
-    value: "$24,300",
-    delta: "+12% this month",
-    up: true,
-    icon: "💰",
-  },
-  {
-    label: "Orders",
-    value: "1,840",
-    delta: "+8% this month",
-    up: true,
-    icon: "🧾",
-  },
-  {
-    label: "Customers",
-    value: "640",
-    delta: "+5% this month",
-    up: true,
-    icon: "👥",
-  },
-  {
-    label: "Products",
-    value: "86",
-    delta: "-2 this month",
-    up: false,
-    icon: "📦",
-  },
+  { label: "Revenue", value: "₦24,300", delta: "+12% this month", up: true, icon: "💰" },
+  { label: "Orders", value: "₦1,840", delta: "+8% this month", up: true, icon: "🧾" },
+  { label: "Customers", value: "₦640", delta: "+5% this month", up: true, icon: "👥" },
+  { label: "Products", value: "₦86", delta: "-2 this month", up: false, icon: "📦" },
 ];
 
 const recentOrders = [
-  {
-    id: "#4021",
-    customer: "Tunde Adeyemi",
-    items: 3,
-    total: "$42.00",
-    status: "Delivered",
-  },
-  {
-    id: "#4020",
-    customer: "Fatima Bello",
-    items: 1,
-    total: "$15.50",
-    status: "Pending",
-  },
-  {
-    id: "#4019",
-    customer: "Chidi Okafor",
-    items: 5,
-    total: "$87.00",
-    status: "Delivered",
-  },
-  {
-    id: "#4018",
-    customer: "Ngozi Eze",
-    items: 2,
-    total: "$31.00",
-    status: "Cancelled",
-  },
-  {
-    id: "#4017",
-    customer: "Emeka Nwosu",
-    items: 4,
-    total: "$60.00",
-    status: "Pending",
-  },
+  { id: "#4021", customer: "Tunde Adeyemi", items: 3, total: "₦42.00", status: "Delivered" },
+  { id: "#4020", customer: "Fatima Bello", items: 1, total: "₦15.50", status: "Pending" },
+  { id: "#4019", customer: "Chidi Okafor", items: 5, total: "₦87.00", status: "Delivered" },
+  { id: "#4018", customer: "Ngozi Eze", items: 2, total: "₦31.00", status: "Cancelled" },
+  { id: "#4017", customer: "Emeka Nwosu", items: 4, total: "₦60.00", status: "Pending" },
 ];
 
 const topProducts = [
-  { name: "Prada Route", sold: 243, revenue: "$4,374", image: <img className="rounded-[6px] w-full h-full object-cover" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags/cross/route_1.jpg" alt="" /> },
-  { name: "Leather Soft Bags", sold: 187, revenue: "$3,366", image: <img className="rounded-[6px] w-full h-full object-cover" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/soft_bag_1.jpg" alt="" /> },
-  { name: "Prada Brique", sold: 152, revenue: "$2,128", image: <img className="rounded-[6px] w-full h-full object-cover" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/brique_2.jpg" alt="" /> },
-  { name: "Prada Re-Nylon Backpack", sold: 98, revenue: "$1,470", image: <img className="rounded-[6px] w-full h-full object-cover" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/backpacks_1.jpg" alt="" /> },
-  { name: "Prada Explore leather shoulder bag", sold: 50, revenue: "$1,070", image: <img className="rounded-[6px] w-full h-full object-cover" src="https://www.prada.com/content/dam/pradabkg_products/2/2VH/2VH204/2HE8F0002/2VH204_2HE8_F0002_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" alt="" />}
+  { name: "Prada Route", sold: 243, revenue: "₦4,374", img: "https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags/cross/route_1.jpg" },
+  { name: "Leather Soft Bags", sold: 187, revenue: "₦3,366", img: "https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/soft_bag_1.jpg" },
+  { name: "Prada Brique", sold: 152, revenue: "₦2,128", img: "https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/brique_2.jpg" },
+  { name: "Prada Re-Nylon Backpack", sold: 98, revenue: "₦1,470", img: "https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_men/cross/backpacks_1.jpg" },
+  { name: "Prada Explore Bag", sold: 50, revenue: "₦1,070", img: "https://www.prada.com/content/dam/pradabkg_products/2/2VH/2VH204/2HE8F0002/2VH204_2HE8_F0002_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg" }
 ];
 
 const statusStyles: Record<string, string> = {
@@ -95,12 +45,7 @@ export default function Dashboard() {
           <div>
             <h1 className="text-[17px] font-medium text-gray-900">Dashboard</h1>
             <p className="text-[12px] text-gray-400 mt-0.5">
-              {new Date().toLocaleDateString("en-US", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+              {new Date().toLocaleDateString("en-NG", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -116,18 +61,13 @@ export default function Dashboard() {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
           {stats.map((s) => (
-            <div
-              key={s.label}
-              className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4"
-            >
+            <div key={s.label} className="bg-white border border-gray-100 rounded-xl p-3 sm:p-4">
               <div className="flex justify-between items-start mb-1.5">
                 <p className="text-[11px] text-gray-400">{s.label}</p>
-                <span className="text-sm" role="img" aria-label={s.label}>{s.icon}</span>
+                <span className="text-sm">{s.icon}</span>
               </div>
               <p className="text-[18px] sm:text-[20px] font-medium text-gray-900">{s.value}</p>
-              <p
-                className={`text-[10px] mt-1 flex items-center gap-1 ${s.up ? "text-green-700" : "text-red-700"}`}
-              >
+              <p className={`text-[10px] mt-1 flex items-center gap-1 ${s.up ? "text-green-700" : "text-red-700"}`}>
                 {s.up ? <TrendingUp size={10} /> : <TrendingDown size={10} />}
                 {s.delta}
               </p>
@@ -137,62 +77,31 @@ export default function Dashboard() {
 
         {/* Bottom Row Blocks */}
         <div className="grid grid-cols-1 xl:grid-cols-[1fr_300px] gap-3">
-          
           {/* Recent Orders Card */}
           <div className="bg-white border border-gray-100 rounded-xl p-4 overflow-hidden">
             <div className="flex items-center justify-between mb-4">
-              <p className="text-[13px] font-medium text-gray-900">
-                Recent orders
-              </p>
-              <a
-                href="/admin/orders"
-                className="text-[11px] text-orange-600 hover:underline"
-              >
-                View all →
-              </a>
+              <p className="text-[13px] font-medium text-gray-900">Recent orders</p>
+              <a href="/admin/orders" className="text-[11px] text-orange-600 hover:underline">View all →</a>
             </div>
             
-            {/* Scroll Container for Mobile Screens */}
-            <div className="w-full overflow-x-auto scrollbar-thin">
+            <div className="w-full overflow-x-auto">
               <table className="w-full min-w-[500px]">
                 <thead>
-                  <tr>
-                    {["Order", "Customer", "Items", "Total", "Status"].map(
-                      (h) => (
-                        <th
-                          key={h}
-                          className="text-[10px] uppercase tracking-wide text-gray-400 font-medium text-left pb-2 border-b border-gray-100"
-                        >
-                          {h}
-                        </th>
-                      ),
-                    )}
+                  <tr className="border-b border-gray-100">
+                    {["Order", "Customer", "Items", "Total", "Status"].map((h) => (
+                      <th key={h} className="text-[10px] uppercase tracking-wide text-gray-400 font-medium text-left pb-2">{h}</th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody>
                   {recentOrders.map((o) => (
-                    <tr
-                      key={o.id}
-                      className="hover:bg-orange-50/30 transition-colors"
-                    >
-                      <td className="text-[12px] text-gray-500 py-2.5 border-b border-gray-50">
-                        {o.id}
-                      </td>
-                      <td className="text-[12px] text-gray-500 py-2.5 border-b border-gray-50">
-                        {o.customer}
-                      </td>
-                      <td className="text-[12px] text-gray-500 py-2.5 border-b border-gray-50">
-                        {o.items}
-                      </td>
-                      <td className="text-[12px] text-gray-500 py-2.5 border-b border-gray-50">
-                        {o.total}
-                      </td>
-                      <td className="py-2.5 border-b border-gray-50">
-                        <span
-                          className={`text-[10px] font-medium px-2 py-0.5 rounded-full inline-block ${statusStyles[o.status]}`}
-                        >
-                          {o.status}
-                        </span>
+                    <tr key={o.id} className="hover:bg-orange-50/30 transition-colors">
+                      <td className="text-[12px] text-gray-500 py-3 border-b border-gray-50">{o.id}</td>
+                      <td className="text-[12px] text-gray-500 py-3 border-b border-gray-50">{o.customer}</td>
+                      <td className="text-[12px] text-gray-500 py-3 border-b border-gray-50">{o.items}</td>
+                      <td className="text-[12px] text-gray-500 py-3 border-b border-gray-50">{o.total}</td>
+                      <td className="py-3 border-b border-gray-50">
+                        <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${statusStyles[o.status]}`}>{o.status}</span>
                       </td>
                     </tr>
                   ))}
@@ -203,32 +112,22 @@ export default function Dashboard() {
 
           {/* Top Products Card */}
           <div className="bg-white border border-gray-100 rounded-xl p-4">
-            <p className="text-[13px] font-medium text-gray-900 mb-4">
-              Top products
-            </p>
-            <div className="flex flex-col">
-              {topProducts.map((p, i) => (
-                <div
-                  key={p.name}
-                  className={`flex items-center gap-2.5 py-2.5 ${i < topProducts.length - 1 ? "border-b border-gray-50" : ""}`}
-                >
-                  <div className="w-8 h-8 rounded-[6px] overflow-hidden flex-shrink-0 bg-orange-50 flex items-center justify-center text-[18px] cursor-pointer">
-                    {p.image}
+            <p className="text-[13px] font-medium text-gray-900 mb-4">Top products</p>
+            <div className="flex flex-col gap-3">
+              {topProducts.map((p) => (
+                <div key={p.name} className="flex items-center gap-3 py-1">
+                  <div className="w-9 h-9 rounded-[6px] overflow-hidden flex-shrink-0 bg-gray-100">
+                    <img src={p.img} alt={p.name} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[12px] font-medium text-gray-800 truncate">
-                      {p.name}
-                    </p>
+                    <p className="text-[12px] font-medium text-gray-800 truncate">{p.name}</p>
                     <p className="text-[10px] text-gray-400">{p.sold} sold</p>
                   </div>
-                  <p className="text-[12px] font-medium text-gray-800 flex-shrink-0">
-                    {p.revenue}
-                  </p>
+                  <p className="text-[12px] font-medium text-gray-800">{p.revenue}</p>
                 </div>
               ))}
             </div>
           </div>
-
         </div>
       </main>
     </div>

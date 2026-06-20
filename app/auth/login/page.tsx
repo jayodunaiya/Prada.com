@@ -150,16 +150,16 @@ export default function LoginPage() {
             <div className="my-10 flex items-center">
               <div className="flex-1 border-t border-gray-200"></div>
 
-              <span className="px-5 text-xs uppercase tracking-[0.3em] text-gray-400">
+              {/* <span className="px-5 text-xs uppercase tracking-[0.3em] text-gray-400">
                 Or
-              </span>
+              </span> */}
 
               <div className="flex-1 border-t border-gray-200"></div>
             </div>
 
-            <button className="w-full border border-black py-4 uppercase tracking-[0.25em] text-sm hover:bg-black hover:text-white transition duration-300">
+            {/* <button className="w-full border border-black py-4 uppercase tracking-[0.25em] text-sm hover:bg-black hover:text-white transition duration-300">
               Continue with Google
-            </button>
+            </button> */}
 
             <p className="mt-10 text-center text-gray-500">
               Don't have an account?{" "}
