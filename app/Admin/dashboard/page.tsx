@@ -7,9 +7,9 @@ import { Bell, Settings, TrendingUp, TrendingDown } from "lucide-react";
 // --- Data Constants ---
 const stats = [
   { label: "Revenue", value: "₦24,300", delta: "+12% this month", up: true, icon: "💰" },
-  { label: "Orders", value: "₦1,840", delta: "+8% this month", up: true, icon: "🧾" },
-  { label: "Customers", value: "₦640", delta: "+5% this month", up: true, icon: "👥" },
-  { label: "Products", value: "₦86", delta: "-2 this month", up: false, icon: "📦" },
+  { label: "Orders", value: "1,840", delta: "+8% this month", up: true, icon: "🧾" },
+  { label: "Customers", value: "640", delta: "+5% this month", up: true, icon: "👥" },
+  { label: "Products", value: "86", delta: "-2 this month", up: false, icon: "📦" },
 ];
 
 const recentOrders = [
