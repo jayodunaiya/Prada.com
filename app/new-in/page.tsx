@@ -178,6 +178,9 @@ export default function NewInPage() {
       <div className="px-6 md:px-12 pb-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-4">
           {lookbookCollection.map((product, i) => (
+            <Link
+            href="/products/15"
+            >
             <div key={i} className="flex flex-col group cursor-pointer">
               <div className="aspect-[1/1] bg-neutral-50 overflow-hidden relative">
                 <img src={product.url} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
@@ -185,6 +188,7 @@ export default function NewInPage() {
               </div>
               <p className="pt-4 text-[12px] leading-relaxed tracking-wide font-normal text-neutral-800 group-hover:text-black transition-colors duration-300">{product.name}</p>
             </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -204,9 +208,13 @@ export default function NewInPage() {
       </div>
 
       {/* Main Grid Collection Runway Segment 2 */}
+      
       <div className="px-6 md:px-12 py-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-4">
           {essentialCollection1.map((product, i) => (
+            <Link
+      href="/products/10"
+      > 
             <div key={i} className="flex flex-col group cursor-pointer">
               <div className="aspect-[1/1] bg-neutral-50 overflow-hidden relative">
                 <img src={product.url} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
@@ -214,6 +222,7 @@ export default function NewInPage() {
               </div>
               <p className="pt-4 text-[12px] leading-relaxed tracking-wide font-normal text-neutral-800 group-hover:text-black transition-colors duration-300">{product.name}</p>
             </div>
+      </Link>
           ))}
         </div>
       </div>
@@ -236,6 +245,9 @@ export default function NewInPage() {
       <div className="px-6 md:px-12 py-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-4">
           {essentialCollection2.map((product, i) => (
+            <Link
+            href="/products/20"
+            >
             <div key={i} className="flex flex-col group cursor-pointer">
               <div className="aspect-[1/1] bg-neutral-50 overflow-hidden relative">
                 <img src={product.url} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
@@ -243,6 +255,7 @@ export default function NewInPage() {
               </div>
               <p className="pt-4 text-[12px] leading-relaxed tracking-wide font-normal text-neutral-800 group-hover:text-black transition-colors duration-300">{product.name}</p>
             </div>
+            </Link>
           ))}
         </div>
       </div>

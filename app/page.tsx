@@ -29,7 +29,7 @@ export default function Home() {
         <div className="relative z-10 text-white text-center flex flex-col justify-center items-center gap-3 px-4">
           <h1 className="text-[10px] tracking-[0.35em] uppercase font-medium text-neutral-200">THE DIGITAL EDIT</h1>
           <p className="text-2xl md:text-4xl font-extralight tracking-widest uppercase">Days of Summer</p>
-          <Link href="/collections/days-of-summer" className="text-[9px] tracking-[0.4em] font-semibold text-neutral-300 border-b border-white/40 pb-0.5 uppercase cursor-pointer hover:text-white hover:border-white transition-colors duration-300">
+          <Link href="/women" className="text-[9px] tracking-[0.4em] font-semibold text-neutral-300 border-b border-white/40 pb-0.5 uppercase cursor-pointer hover:text-white hover:border-white transition-colors duration-300">
             FOR HER
           </Link>
         </div>
