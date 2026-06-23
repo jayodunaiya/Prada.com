@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import NavBar from "@/app/NavBar";
+import Link from "next/link";
 
 // 1. Centralized high-fashion product database matrix
 const PRODUCT_DATABASE: Record<string, {
@@ -216,6 +217,9 @@ export default function ProductDetails({ params }: ProductParams) {
               </div>
             </div>
 
+            <Link
+            href="/checkout"
+            >
             <button 
               disabled={!selectedSize}
               className={`w-full h-12 text-[11px] tracking-[0.25em] font-bold transition-all duration-400 focus:outline-none ${
@@ -226,6 +230,7 @@ export default function ProductDetails({ params }: ProductParams) {
             >
               {selectedSize ? "ADD TO BAG" : "SELECT A SIZE"}
             </button>
+            </Link>
           </div>
 
         </div>
