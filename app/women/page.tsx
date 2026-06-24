@@ -14,7 +14,7 @@ export default function For_Her() {
         </div>
 
         {/* Bags Categories Horizontal Scroll on Mobile */}
-        <div className="overflow-x-auto w-full pt-18 px-4 sm:px-10 text-black">
+        <div className="overflow-x-auto w-full py-18 px-4 sm:px-10 text-black">
           <div className="flex justify-start md:justify-center gap-6 md:gap-0.5 min-w-max md:min-w-0">
             
             
@@ -55,15 +55,7 @@ export default function For_Her() {
 
       {/* Big Video */}
       <div className="w-full h-auto">
-        <video 
-          autoPlay
-          muted
-          loop
-          playsInline 
-          className="w-full h-full object-cover"
-          src="/14742441_1080_1920_30fps.mp4" 
-          controls
-        />
+        <img className="w-full h-full object-cover" src="https://i.pinimg.com/webp/736x/a4/7f/41/a47f412db036ce9d68711ca2e6dd6edf.webp" alt="" />
       </div>
 
       {/* White-Part Description */}
