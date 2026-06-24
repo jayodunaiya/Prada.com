@@ -183,7 +183,7 @@ export default function Home() {
         
         {/* Transparent Interactive Dashboard Container */}
         <div className="relative z-10 text-white text-center flex flex-col justify-center items-center gap-4 px-6 max-w-2xl">
-          <h1 className="text-2xl lg:text-4xl font-extralight tracking-[0.25em] uppercase">Prada Explore</h1>
+          <h1 className="text-2xl lg:text-4xl font-extralight tracking-[0.25em] uppercase"><span className="italic">Jay-fabrics</span> Explore</h1>
           <p className="text-xs text-neutral-200 font-light tracking-wide leading-relaxed max-w-md">
             Bold elegance paired seamlessly with utility in an architectural build, complete with curated spaces designed for contemporary movement.
           </p>

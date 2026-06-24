@@ -170,7 +170,7 @@ const subtotal = cartItems.reduce(
           {/* Center Brand Identity (Pinned Dynamically at Absolute Middle) */}
           <div className="flex items-center justify-center shrink-0 mx-4">
             <Link href="/" className="flex items-center justify-center group" aria-label="Home">
-              <div className="relative w-24 sm:w-28 md:w-36 h-8 sm:h-10 flex items-center justify-center text-black transition-opacity duration-300 group-hover:opacity-70">
+              {/* <div className="relative w-24 sm:w-28 md:w-36 h-8 sm:h-10 flex items-center justify-center text-black transition-opacity duration-300 group-hover:opacity-70">
                 <Image 
                   src="/download.png" 
                   alt="Logo" 
@@ -178,7 +178,9 @@ const subtotal = cartItems.reduce(
                   className="object-contain"
                   priority 
                 />
-              </div>
+              </div> */}
+
+              <p className="text-[25px] font-bold italic">Jay-fabrics</p>
             </Link>
           </div>
 
