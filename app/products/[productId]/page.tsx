@@ -14,10 +14,10 @@ const PRODUCT_DATABASE: Record<string, {
   details: string;
   sizing: string;
 }> = {
-  "summer-bags": {
-    name: "Prada Summer Bags",
+  "Agbadas": {
+    name: "Gallant Agbada",
     price: "₦245,000",
-    image: "https://www.prada.com/content/dam/pradaspa/home_page/2026/03/essentials_bags/slider/summer_bags_3.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg",
+    image: "http://localhost:3000/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F1200x%2F74%2F27%2F15%2F7427154629d2c8607df3e836f0a78fd9.jpg&w=256&q=75",
     breadcrumbs: "Bags / Essentials / Summer",
     description: "Lightweight architectural integrity crafted for warm environments. Emphasizes organic textures paired seamlessly with modern luxury utility.",
     details: "Woven fiber construction with leather contrast trim. Open top configuration with matching detachable canvas inner zip pouch.",
@@ -33,9 +33,9 @@ const PRODUCT_DATABASE: Record<string, {
     sizing: "Medium capacity layout profile. Tailored adjustable webbed nylon crossbody strap system."
   },
   "1": { // Matches the "/products/1" route from your homepage grid snippet
-    name: "Prada Galleria Bag",
-    price: "₦198,000",
-    image: "https://www.prada.com/content/dam/pradaspa/home_page/2026/04/galleria/bags/galleria.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg",
+    name: "Gallant Agbada",
+    price: "₦80,000",
+    image: "http://localhost:3000/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fee%2F85%2F5f%2Fee855f0334e00954ce450935efbb55e9.jpg&w=256&q=75",
     breadcrumbs: "Bags / Icons / Galleria",
     description: "The historical archetype of Prada leather craftsmanship. Formulated with architectural crosshatch texturing and clean tailored contours.",
     details: "Saffiano leather handles and trim accents. Removable leather keychain wrapper. Front stitched metal triangle brand insignia plate.",

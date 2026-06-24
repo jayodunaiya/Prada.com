@@ -5,12 +5,16 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "www.prada.com",
+        protocol: 'https',
+        hostname: 'i.pinimg.com',
       },
     ],
   },
-};
+}
+
+module.exports = nextConfig
+
+
 
 module.exports = nextConfig;
 export default nextConfig;

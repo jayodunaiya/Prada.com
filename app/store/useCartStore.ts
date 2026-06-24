@@ -1,6 +1,9 @@
 // app/store/useCartStore.ts
-import { create } from "zustand";
+
 import { persist } from "zustand/middleware";
+
+// app/store/useCartStore.ts
+import { create } from 'zustand';
 
 export interface CartItem {
   id: number;

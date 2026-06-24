@@ -70,7 +70,7 @@ export default function CheckoutPage() {
         name: formData.fullName,
       },
       customizations: {
-        title: "Prada Milan Checkout",
+        title: "Checkout",
         description: `Purchase of ${cartItems.map((i) => `${i.name} (x${i.quantity})`).join(", ")}`,
       },
     };
@@ -259,14 +259,20 @@ export default function CheckoutPage() {
             <div className="sticky top-28 rounded-xl border border-neutral-200 bg-white shadow-xl overflow-hidden">
               {cartItems.length > 0 ? (
                 <>
+                  {/* UPDATED STATIC IMAGE */}
                   <div className="relative h-[260px] bg-neutral-100">
-                    <Image
-                      src={cartItems[0].image}
-                      alt={cartItems[0].name}
-                      fill
-                      className="object-cover"
+                    <img
+                      src="https://i.pinimg.com/736x/ee/85/5f/ee855f0334e00954ce450935efbb55e9.jpg"
+                      alt="Checkout"
+                      className="w-full h-full object-cover"
                     />
+                    <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
+                      <span className="text-white font-light tracking-[0.4em] uppercase text-sm">
+                        Secure Checkout
+                      </span>
+                    </div>
                   </div>
+
                   <div className="p-8">
                     <p className="uppercase tracking-[0.3em] text-[10px] text-neutral-400">
                       Order Summary

@@ -14,7 +14,7 @@ export default function Home() {
           muted
           loop
           playsInline  
-          src="/Download.mp4"
+          src="/ssstik.io_@sagadeolu_1782309495413.mp4"
         />
         
         {/* Monochromatic Overlay Gradient */}
@@ -60,15 +60,15 @@ export default function Home() {
           {/* Item 1 */}
           <Link href="/category/buckle-cotton-leather-bag" className="flex flex-col gap-3 text-center group cursor-pointer">
             <div className="aspect-[1/1] bg-neutral-50 overflow-hidden relative">
-              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/slider/w/01.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Prada Bag" className="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" />
+              <img src="https://i.pinimg.com/1200x/74/27/15/7427154629d2c8607df3e836f0a78fd9.jpg" alt="Prada Bag" className="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" />
             </div>
-            <p className="px-2 text-xs font-light tracking-wide text-neutral-800 transition-colors group-hover:text-black mt-1">Prada Buckle cotton and leather bag</p>
+            <p className="px-2 text-xs font-light tracking-wide text-neutral-800 transition-colors group-hover:text-black mt-1">Gallant Senator</p>
           </Link>
 
           {/* Item 2 */}
           <Link href="/category/cotton-boucle-crop-top" className="flex flex-col gap-3 text-center group cursor-pointer">
             <div className="aspect-[1/1] bg-neutral-50 overflow-hidden relative">
-              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/slider/w/02.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Crop Top" className="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" />
+              <img src="https://i.pinimg.com/736x/ee/85/5f/ee855f0334e00954ce450935efbb55e9.jpg" alt="Crop Top" className="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" />
             </div>
             <p className="px-2 text-xs font-light tracking-wide text-neutral-800 transition-colors group-hover:text-black mt-1">Cotton boucle crop top</p>
           </Link>
@@ -76,7 +76,7 @@ export default function Home() {
           {/* Item 3 */}
           <Link href="/category/raffia-hat" className="flex flex-col gap-3 text-center group cursor-pointer">
             <div className="aspect-[1/1] bg-neutral-50 overflow-hidden relative">
-              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/slider/w/03.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Raffia Hat" className="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" />
+              <img src="https://i.pinimg.com/webp/1200x/d1/fc/1b/d1fc1b08a54ac65bb5c70f8cc56ec6a4.webp" alt="Raffia Hat" className="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" />
             </div>
             <p className="px-2 text-xs font-light tracking-wide text-neutral-800 transition-colors group-hover:text-black mt-1">Raffia hat</p>
           </Link>
@@ -84,7 +84,7 @@ export default function Home() {
           {/* Item 4 */}
           <Link href="/category/leather-sandals-floral" className="flex flex-col gap-3 text-center group cursor-pointer">
             <div className="aspect-[1/1] bg-neutral-50 overflow-hidden relative">
-              <img src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/slider/w/04.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg" alt="Sandals" className="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" />
+              <img src="https://i.pinimg.com/736x/11/18/e2/1118e26685adb28b6f136b105e23123a.jpg" alt="Sandals" className="w-full h-full object-cover group-hover:scale-[1.015] transition-transform duration-700 ease-out" />
             </div>
             <p className="px-2 text-xs font-light tracking-wide text-neutral-800 transition-colors group-hover:text-black mt-1">Leather sandals with floral ornament</p>
           </Link>
@@ -271,7 +271,7 @@ export default function Home() {
 
       {/* ================= PRADASPHERE DIGEST MAGAZINE PANEL ================= */}
       <div className="flex flex-col items-center py-20 px-4 gap-12 bg-neutral-950 text-white">
-        <h2 className="text-xl lg:text-3xl font-extralight tracking-[0.3em] uppercase">Pradasphere News</h2>
+        <h2 className="text-xl lg:text-3xl font-extralight tracking-[0.3em] uppercase">Jay-fabricssphere News</h2>
         
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-4 max-w-6xl px-2 lg:px-0">
           
