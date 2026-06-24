@@ -14,7 +14,7 @@ export default function Home() {
           muted
           loop
           playsInline  
-          src="https://www.prada.com/content/dam/pradaspa/home_page/2026/05/days_of_summer/hero/w/loop_DT_1.mp4#t=0.001" 
+          src="" 
         />
         
         {/* Monochromatic Overlay Gradient */}
