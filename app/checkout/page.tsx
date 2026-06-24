@@ -98,7 +98,7 @@ export default function CheckoutPage() {
             <div className="sticky top-28 rounded-xl border border-neutral-200 bg-white shadow-xl overflow-hidden">
               <div className="relative h-[350px]">
                 <Image
-                  src="https://www.prada.com/content/dam/pradaspa/home_page/2026/03/essentials_bags/slider/summer_bags_3.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg"
+                  src=""
                   alt="Prada Bag"
                   fill
                   className="object-cover"

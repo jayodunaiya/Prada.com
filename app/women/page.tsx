@@ -61,7 +61,7 @@ export default function For_Her() {
           loop
           playsInline 
           className="w-full h-full object-cover"
-          src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_woman/explore/hero/loop_DT.mp4#t=0.001" 
+          src="/14742441_1080_1920_30fps.mp4" 
           controls
         />
       </div>
@@ -111,7 +111,7 @@ export default function For_Her() {
           <p className="text-gray-600 text-center text-[10px] pt-2">True to its name, Explore bag is a trusted companion for both urban and outdoor journeys.</p>
         </div>
         <div className="h-auto w-full md:w-1/2">
-          <img className="h-full w-full object-cover max-h-[400px] md:max-h-[600px]" src="https://www.prada.com/content/dam/pradaspa/ecommerce/2026/05/bags_essentials_woman/explore/card_1/card_DT.jpg" alt="" />
+          <img className="h-full w-full object-cover max-h-[400px] md:max-h-[600px]" src="https://i.pinimg.com/736x/1d/95/ef/1d95efaed13bd137fe9c7ac2d13036a4.jpg" alt="" />
         </div>
       </div>
   
