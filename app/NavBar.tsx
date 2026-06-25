@@ -6,11 +6,22 @@
   import { ShoppingBag } from "lucide-react";
   // Imported useRouter and usePathname hooks from Next.js navigation systems
   import { useRouter, usePathname } from "next/navigation";
-
-
+  import { useCartStore } from "@/app/store/useCartStore";
+  
     export default function NavBar() {
     const router = useRouter();
     const pathname = usePathname();
+
+    const {
+  cartItems,
+  increaseQuantity,
+  decreaseQuantity,
+  removeItem,
+  getSubtotal,
+} = useCartStore();
+
+const subtotal = getSubtotal();
+
     
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -24,69 +35,12 @@
     }).format(amount);
   };
 
-    const [cartItems, setCartItems] = useState([
-    {
-    id: 1,
-    name: "Prada Summer Bag",
-    color: "White Leather",
-    price: 3200,
-    quantity: 1,
-    image: "https://i.pinimg.com/1200x/74/27/15/7427154629d2c8607df3e836f0a78fd9.jpg",
-  },
-  {
-    id: 2,
-    name: "Prada Route",
-    color: "Black Leather",
-    price: 2800,
-    quantity: 1,
-    image: "https://i.pinimg.com/736x/ee/85/5f/ee855f0334e00954ce450935efbb55e9.jpg",
-  },
-  {
-    id: 3,
-    name: "Galleria Bag",
-    color: "Saffiano Leather",
-    price: 4100,
-    quantity: 1,
-    image: "https://i.pinimg.com/736x/aa/f1/c0/aaf1c05bd23f2352e63168b4b8d6257d.jpg",
-  },
-]);
-    const increaseQuantity = (id: number) => {
-    setCartItems((items) =>
-      items.map((item) =>
-        item.id === id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      )
-    );
-  };
-
-  const decreaseQuantity = (id: number) => {
-    setCartItems((items) =>
-      items
-        .map((item) =>
-          item.id === id
-            ? {
-                ...item,
-                quantity: Math.max(1, item.quantity - 1),
-              }
-            : item
-        )
-    );
-  };
-
-  const removeItem = (id: number) => {
-    setCartItems((items) =>
-      items.filter((item) => item.id !== id)
-    );
-  };
-
-  const subtotal = cartItems.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
+    
 
     // Conditional logic to hide back navigation layout on the root/home page screen matrix
     const isHomePage = pathname === "/";
+
+    console.log(cartItems);
 
     return (
       <>
@@ -392,11 +346,11 @@
             Your bag is empty.
           </div>
         ) : (
-          cartItems.map((item) => (
-            <div
-              key={item.id}
-              className="flex gap-4 py-6 border-b border-neutral-200"
-            >
+         cartItems.map((item, index) => (
+  <div
+    key={`${item.id}-${index}`}
+    className="flex gap-4 py-6 border-b border-neutral-200"
+  >
               <Image
                 src={item.image}
                 width={90}

@@ -29,13 +29,23 @@ export const useCartStore = create<CartState>()(
       cartItems: [
         {
           id: 1,
-          name: "Prada Summer Bag",
-          color: "White Leather",
-          price: 3200000, // Fixed: Using actual price instead of placeholder 3200
+          name: "Women Rose Gown ",
+          color: "Forest Green",
+          price: 38000, // Fixed: Using actual price instead of placeholder 3200
           quantity: 1,
           image:
-            "https://www.prada.com/content/dam/pradaspa/home_page/2026/03/essentials_bags/slider/summer_bags_3.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg",
+            "https://i.pinimg.com/webp/1200x/5d/c7/b7/5dc7b71521510222b2e53fb9218cef21.webp",
         },
+        {
+          id: 2,
+          name: "Elegant women dress",
+          color: "White Leather",
+          price: 50000, // Fixed: Using actual price instead of placeholder 3200
+          quantity: 1,
+          image:
+            "https://i.pinimg.com/736x/11/18/e2/1118e26685adb28b6f136b105e23123a.jpg",
+        },
+        
       ],
       increaseQuantity: (id) =>
         set((state) => ({
@@ -64,7 +74,7 @@ export const useCartStore = create<CartState>()(
       },
     }),
     {
-      name: "prada-cart-storage", // Key used in localStorage
+      name: "jay-fabrics-cart-storage", // Key used in localStorage
     },
   ),
 );

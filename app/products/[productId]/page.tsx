@@ -23,9 +23,9 @@ const PRODUCT_DATABASE: Record<string, {
     details: "Woven fiber construction with leather contrast trim. Open top configuration with matching detachable canvas inner zip pouch.",
     sizing: "Dimensions: 34cm height x 40cm width. Proportional standard shoulder drop length scaling."
   },
-  "prada-route": {
-    name: "Prada Route Bag",
-    price: "₦310,000",
+  "": {
+    name: "",
+    price: "₦31,000",
     image: "https://www.prada.com/content/dam/pradaspa/home_page/2026/05/bags/route_2.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg",
     breadcrumbs: "Bags / Travel / Route",
     description: "An urban exploration profile featuring clean graphic lines and a performance-driven structure engineered for sleek modern movement.",
@@ -34,16 +34,16 @@ const PRODUCT_DATABASE: Record<string, {
   },
   "1": { // Matches the "/products/1" route from your homepage grid snippet
     name: "Gallant Agbada",
-    price: "₦80,000",
+    price: "₦50,000",
     image: "http://localhost:3000/_next/image?url=https%3A%2F%2Fi.pinimg.com%2F736x%2Fee%2F85%2F5f%2Fee855f0334e00954ce450935efbb55e9.jpg&w=256&q=75",
     breadcrumbs: "Bags / Icons / Galleria",
     description: "The historical archetype of Prada leather craftsmanship. Formulated with architectural crosshatch texturing and clean tailored contours.",
     details: "Saffiano leather handles and trim accents. Removable leather keychain wrapper. Front stitched metal triangle brand insignia plate.",
     sizing: "Fits true to form layout. Follows historical proportional scaling benchmarks."
   },
-  "prada-bonnie": {
-    name: "Prada Bonnie",
-    price: "₦285,000",
+  "Gallant cultural wears": {
+    name: "Gallant cultural wears",
+    price: "₦25,000",
     image: "https://www.prada.com/content/dam/pradaspa/home_page/2026/05/bags/bonnie_1.jpg/_jcr_content/renditions/cq5dam.web.hebebed.2400.2400.jpg",
     breadcrumbs: "Bags / New In / Bonnie Shoulder",
     description: "A soft curved presentation reinterpreting classic archival mid-century aesthetics into minimalist daily luxury statement pieces.",
