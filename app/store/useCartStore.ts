@@ -45,7 +45,15 @@ export const useCartStore = create<CartState>()(
           image:
             "https://i.pinimg.com/736x/11/18/e2/1118e26685adb28b6f136b105e23123a.jpg",
         },
-        
+        {
+          id: 3,
+          name: "Men's Brown Agbada",
+          color: "White Leather",
+          price: 50000, // Fixed: Using actual price instead of placeholder 3200
+          quantity: 1,
+          image:
+            "https://i.pinimg.com/1200x/74/27/15/7427154629d2c8607df3e836f0a78fd9.jpg",
+        },
       ],
       increaseQuantity: (id) =>
         set((state) => ({
